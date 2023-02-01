@@ -1,16 +1,20 @@
 {
-  "name": "production-project",
+  "name": "bloggering-platform",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit i"
+    "start": "webpack serve port=3000",
+    "build:prod": "webpack --env mode=production",
+    "build:dev": "webpack --env mode=development"
   },
   "keywords": [],
   "author": "Anastasiya Volkava",
   "license": "ISC",
   "dependencies": {
-    "react": "^17.0.2"
+    "@types/webpack-dev-server": "^4.7.2",
+    "react": "^17.0.2",
+    "webpack-dev-server": "^4.7.4"
   },
   "devDependencies": {
     "@types/node": "^17.0.21",
