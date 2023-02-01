@@ -7,6 +7,7 @@
     "jsx": "react",
     "allowJs": true, //компилятор обрабатывает не только ts, но и js
     "moduleResolution": "node",
+    "baseUrl": ".", // абсолютный импорт
     "esModuleInterop": true, // использовать import/export вместо common.js (require() module.export)
     "allowSyntheticDefaultImports": true, //использовать экспорт без *, даже у пакетов без дефолтного экспорта
   },
