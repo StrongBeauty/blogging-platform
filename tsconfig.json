@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "outDir": "./dist/", // куда происходит сборка
-    "noImplicitAny": false, // обязательное/нет явное указание типов
+    "noImplicitAny": true, // обязательное/нет явное указание типов
     "module": "esNext", // модульная система
     "target": "es2016", // в какую спецификацию комплилируется
-    "jsx": "react",
+    "jsx": "react-jsx", // не требяется import React
     "allowJs": true, //компилятор обрабатывает не только ts, но и js
     "moduleResolution": "node",
     "baseUrl": ".", // абсолютный импорт
