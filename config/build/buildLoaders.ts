@@ -10,7 +10,7 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
     }
 
     const cssLoader = {
-        test: /\.s[ac]ss$/i,
+        test: /\.s[ac]ss$/i, // /\.s|[ac]ss$/i or /\.(sa|sc|c)ss$/ - включает и css
         use: [
             // Creates `style` nodes from JS strings
             isDev
@@ -22,7 +22,7 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
                 options: {
                     modules: {
                         auto: (resPath: string) =>
-                            Boolean(resPath.includes('.module.')),
+                            resPath.includes('.module.'), // or RegExp auto: /\.module\./
                         localIdentName: isDev
                             ? '[path][name]__[local]' // --[hash:base64:4]
                             : '[hash:base64:8]'
