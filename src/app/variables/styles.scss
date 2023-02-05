@@ -1,3 +1,23 @@
+.app.dark {
+  --bg-color: #0000af;
+  --inverted-bg-color: #bbb9b9;
+
+  --primary-color: #00ff00;
+  --inverted-primary-color: #0000af;
+  --secondary-color: #209a20;
+  --inverted-secondary-color: #081838;
+}
+
+.app.light {
+  --bg-color: #bbb9b9;
+  --inverted-bg-color: #0000af;
+
+  --primary-color: #0000af;
+  --inverted-primary-color: #00ff00;
+  --secondary-color: #081838;
+  --inverted-secondary-color: #209a20;
+}
+
 :root {
   --font-family-main: Consolas, 'Times New Roman', Serif;
 
@@ -8,4 +28,6 @@
   --font-size-l: 24px;
   --font-line-l: 32px;
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+  --navbar-height: 50px;
 }
