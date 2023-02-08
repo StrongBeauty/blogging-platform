@@ -6,8 +6,8 @@ import 'app/ui/app.scss';
 export const AppRouter = () => {
     return (
         <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
             {Object.values(routeConfig).map(({element, path}) => (
-                <Routes>
                     <Route
                         key={path}
                         element={
@@ -17,8 +17,8 @@ export const AppRouter = () => {
                         }
                         path={path}
                     />
-                </Routes>
             ))}
+            </Routes>
         </Suspense>
     )
 }

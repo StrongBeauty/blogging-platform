@@ -11,11 +11,13 @@ export const App = () => {
 
     return (
         <div className={classNames('app', {}, [theme])}>
+           <Suspense fallback=''>
             <Navbar />
             <div className='content'>
                 <Sidebar />
                 <AppRouter/>
             </div>
+           </Suspense>
         </div>
     )
 }
