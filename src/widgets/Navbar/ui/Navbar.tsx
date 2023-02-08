@@ -7,7 +7,6 @@ import {ThemeSwitcher} from "shared/ui/ThemeSwitcher";
 export const Navbar = () => {
     return(
         <div className={style.navbar}>
-            <ThemeSwitcher />
             <div className={style.links}>
                 <AppLink to={'/'} theme={'secondary'} className={style.link}>Main</AppLink>
                 <AppLink to={'/about'} theme={'secondary'} className={style.link}>About</AppLink>

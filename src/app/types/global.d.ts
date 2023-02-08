@@ -10,5 +10,7 @@ declare module "*.svg" {
     export default SVG;
 }
 
+// declare const __IS_DEV__: boolean;
 
-// пакет react-scripts и файл react-app-env.d.ts с содержимым <reference types="react-scripts" заменяет global.d.tsF
+
+// пакет react-scripts и файл react-route-env.d.ts с содержимым <reference types="react-scripts" заменяет global.d.tsF

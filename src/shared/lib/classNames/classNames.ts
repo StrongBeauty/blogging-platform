@@ -6,8 +6,8 @@ export const classNames = (cls: string, modes?: ModesType, adds?: string[]): str
         cls,
         ...adds.filter(Boolean),
         ...Object.entries(modes)
-            .filter(value => Boolean(value))
-            .map(className => className)
+            .filter(([className, value]) => Boolean(value))
+            .map(([className]) => className)
     ]
         .join(' ')
 }
