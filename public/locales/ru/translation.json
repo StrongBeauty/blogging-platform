@@ -1,5 +1,6 @@
 {
-  "about us": "О нас",
+  "about_us": "О нас",
   "language": "English",
-  "main page": "Главная страница"
+  "main_page": "Главная страница",
+  "not_found": "Страница не найдена"
 }
