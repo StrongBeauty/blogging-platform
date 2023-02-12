@@ -9,19 +9,19 @@ type SidebarProps = {
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
-    const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
 
-    const onToggle = () => {
-        setCollapsed((prev) => !prev);
-    };
+  const onToggle = () => {
+    setCollapsed((prev) => !prev);
+  };
 
-    return (
-        <div className={classNames(style.sidebar, { [style.collapsed]: collapsed }, [className])}>
-            <button onClick={onToggle}>TOGGLE</button>
-            <div className={style.switchers}>
-                <ThemeSwitcher />
-                <LangSwitcher className={style.lang} />
-            </div>
-        </div>
-    );
+  return (
+    <div className={classNames(style.sidebar, { [style.collapsed]: collapsed }, [className])}>
+      <button onClick={onToggle}>TOGGLE</button>
+      <div className={style.switchers}>
+        <ThemeSwitcher />
+        <LangSwitcher className={style.lang} />
+      </div>
+    </div>
+  );
 };

@@ -9,15 +9,15 @@ type ButtonProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button: FC<ButtonProps> = ({
-    className,
-    theme,
-    children,
-    ...otherProps
+  className,
+  theme,
+  children,
+  ...otherProps
 }) => (
-    <button
-        className={classNames(style.btn, {}, [className, style[theme]])}
-        {...otherProps}
-    >
-        {children}
-    </button>
+  <button
+    className={classNames(style.btn, {}, [className, style[theme]])}
+    {...otherProps}
+  >
+    {children}
+  </button>
 );
