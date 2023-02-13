@@ -2,5 +2,7 @@
   "about_us": "О нас",
   "language": "English",
   "main_page": "Главная страница",
-  "not_found": "Страница не найдена"
+  "not_found": "Страница не найдена",
+  "wrong_message": "Что-то пошло не так..",
+  "upload": "Обновить"
 }

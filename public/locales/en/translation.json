@@ -2,5 +2,7 @@
   "about_us": "About us",
   "language": "Русский",
   "main_page": "Main page",
-  "not_found": "Page Not Found"
+  "not_found": "Page Not Found",
+  "wrong_message": "Something went wrong..",
+  "upload": "Upload"
 }
