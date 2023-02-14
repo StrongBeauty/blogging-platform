@@ -52,7 +52,7 @@ module.exports = {
       'error',
       { markupOnly: true, onlyAttribute: [''] },
     ], // to use i18next plugin only fot text
-    'max-len': ['error', { ignoreComments: true }],
+    'max-len': ['error', { ignoreComments: true, code: 120 }],
   },
   globals: {
     __IS_DEV__: true,
