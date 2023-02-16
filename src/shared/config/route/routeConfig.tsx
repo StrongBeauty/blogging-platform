@@ -1,6 +1,7 @@
 import { RouteProps } from 'react-router-dom';
-import { AboutPage, MainPage } from 'pages/ui';
-import { NotFoundPage } from 'pages/ui/NotFoundPage/ui';
+import { MainPageLazy } from 'pages/MainPage';
+import { AboutPageLazy } from 'pages/AboutPage';
+import { NotFoundPage } from 'pages/NotFoundPage';
 
 export type AppRoutesType = 'main' | 'about' | 'notFound';
 
@@ -13,11 +14,11 @@ export const RoutePaths: Record<AppRoutesType, string> = {
 export const routeConfig: Record<AppRoutesType, RouteProps> = {
   main: {
     path: RoutePaths.main,
-    element: <MainPage />,
+    element: <MainPageLazy />,
   },
   about: {
     path: RoutePaths.about,
-    element: <AboutPage />,
+    element: <AboutPageLazy />,
   },
   notFound: {
     path: RoutePaths.notFound,

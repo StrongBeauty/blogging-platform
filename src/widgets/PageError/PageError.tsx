@@ -19,3 +19,5 @@ export const PageError = () => {
     </div>
   );
 };
+
+export default PageError;
