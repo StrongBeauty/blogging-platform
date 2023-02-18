@@ -3,11 +3,11 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
     branches: [main]
-  pull-request:
+  pull_request:
     branches: [main]
 jobs:
   pipeline:
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
   strategy:
     matrix:
       node-version: [ 18.x ]
