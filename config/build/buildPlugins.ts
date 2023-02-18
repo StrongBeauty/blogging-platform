@@ -3,11 +3,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
-export function buildPlugins(
-  path: string,
-  isDev: boolean,
-): webpack.WebpackPluginInstance[] {
-  return [
+export function buildPlugins(path: string, isDev: boolean): webpack.WebpackPluginInstance[] {
+  const plugins = [
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
       template: path,
@@ -19,9 +16,17 @@ export function buildPlugins(
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
-    // new webpack.HotModuleReplacementPlugin(),
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false,
-    }),
+
   ];
+
+  if (isDev) {
+    plugins.push(
+      new BundleAnalyzerPlugin({
+        openAnalyzer: false,
+      }),
+    // new webpack.HotModuleReplacementPlugin(),
+    );
+  }
+
+  return plugins;
 }
