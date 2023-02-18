@@ -5,7 +5,7 @@ import style from './Button.module.scss';
 type ButtonProps = {
     className?: string;
     // toDo
-    theme?: string;
+    theme?: 'clear' | 'outline';
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button: FC<ButtonProps> = ({

@@ -5,7 +5,7 @@ const AboutPage = () => {
 
   return (
     <div>
-      {t('about us')}
+      {t('about_us')}
     </div>
   );
 };

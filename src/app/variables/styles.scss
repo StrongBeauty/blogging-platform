@@ -1,17 +1,17 @@
-.app.dark {
+.dark {
   --bg-color: #0000af;
   --inverted-bg-color: #bbb9b9;
-  --primary-color: #0f0;
+  --primary-color: #5adc24;
   --inverted-primary-color: #0000af;
   --secondary-color: #209a20;
   --inverted-secondary-color: #081838;
 }
 
-.app.light {
+.light {
   --bg-color: #bbb9b9;
   --inverted-bg-color: #0000af;
   --primary-color: #0000af;
-  --inverted-primary-color: #0f0;
+  --inverted-primary-color: #48c749;
   --secondary-color: #081838;
   --inverted-secondary-color: #209a20;
 }

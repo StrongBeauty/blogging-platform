@@ -1,6 +1,7 @@
 import webpack from 'webpack';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
+import { buildCssLoader } from './loaders/buildCssLoader';
+import { buildSvgLoader } from './loaders/buildSvgLoader';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const typescriptLoader = {
@@ -9,10 +10,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     exclude: /node_modules/,
   };
 
-  const svgLoader = {
-    test: /\.svg$/,
-    use: ['@svgr/webpack'],
-  };
+  const svgLoader = buildSvgLoader();
 
   const fileLoader = {
     test: /\.(png|jpe?g|gif|woff2|woff)$/i, // + шрифты
@@ -22,30 +20,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
       },
     ],
   };
-
-  const cssLoader = {
-    test: /\.s[ac]ss$/i, // /\.s|[ac]ss$/i or /\.(sa|sc|c)ss$/ - включает и css
-    use: [
-      // Creates `style` nodes from JS strings
-      isDev
-        ? 'style-loader'
-        : MiniCssExtractPlugin.loader,
-      // Translates CSS into CommonJS
-      {
-        loader: 'css-loader',
-        options: {
-          modules: {
-            auto: (resPath: string) => resPath.includes('.module.'), // or RegExp auto: /\.module\./
-            localIdentName: isDev
-              ? '[path][name]__[local]' // --[hash:base64:4]
-              : '[hash:base64:8]',
-          },
-        },
-      },
-      // Compiles Sass to CSS
-      'sass-loader',
-    ],
-  };
+  const cssLoader = buildCssLoader(isDev);
 
   return [
     fileLoader,

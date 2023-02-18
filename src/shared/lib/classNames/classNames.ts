@@ -1,7 +1,6 @@
 type ModesType = Record<string, boolean | string>
 
 export const classNames = (
-  // ToDo
   cls: string,
   modes: ModesType = {},
   adds: string[] = [],

@@ -1,8 +1,8 @@
 import './app.scss';
 import { Suspense } from 'react';
-import { useTheme } from 'shared/config/theme/useTheme';
+import { useTheme } from 'shared/contexts/theme/useTheme';
 import { classNames } from 'shared/lib/classNames/classNames';
-import Sidebar from 'widgets/Sidebar/Sidebar';
+import { Sidebar } from 'widgets/Sidebar';
 import { Navbar } from 'widgets/Navbar';
 import { AppRouter } from 'app/providers/router';
 

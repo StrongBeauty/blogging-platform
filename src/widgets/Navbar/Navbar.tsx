@@ -1,4 +1,4 @@
-import { AppLink } from 'shared/ui/AppLink';
+import { AppLink } from 'shared/components/AppLink';
 import style from './Navbar.module.scss';
 
 export const Navbar = () => (
