@@ -24,7 +24,7 @@ i18n.use(initReactI18next)
     // debug: true,
     lng: 'en',
     fallbackLng: 'en',
-    defaultNS: 'common',
+    defaultNS: 'translation',
     ns,
     interpolation: { escapeValue: false },
     react: { useSuspense: false },
