@@ -4,5 +4,8 @@
   "main_page": "Main page",
   "not_found": "Page Not Found",
   "wrong_message": "Something went wrong..",
-  "upload": "Upload"
+  "upload": "Upload",
+  "main": "Main Page",
+  "about": "About Page",
+  "toggle_btn": "TOGGLE"
 }
