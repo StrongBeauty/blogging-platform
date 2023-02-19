@@ -12,7 +12,7 @@ type AppLinkProps = {
 export const AppLink: FC<AppLinkProps> = ({
   className,
   // toDo
-  theme = 'primary',
+  theme,
   to,
   children,
   ...otherProps

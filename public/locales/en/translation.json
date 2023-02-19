@@ -1,11 +1,12 @@
 {
   "about_us": "About us",
-  "language": "Русский",
+  "language": "Russian",
   "main_page": "Main page",
   "not_found": "Page Not Found",
   "wrong_message": "Something went wrong..",
   "upload": "Upload",
   "main": "Main Page",
   "about": "About Page",
-  "toggle": "TOGGLE"
+  "toggle": "TOGGLE",
+  "short_lan": "Ru"
 }

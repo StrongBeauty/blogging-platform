@@ -1,19 +1,19 @@
-.dark {
-  --bg-color: #0000af;
-  --inverted-bg-color: #bbb9b9;
-  --primary-color: #5adc24;
-  --inverted-primary-color: #0000af;
-  --secondary-color: #209a20;
-  --inverted-secondary-color: #081838;
-}
-
 .light {
   --bg-color: #bbb9b9;
-  --inverted-bg-color: #0000af;
+  --inverted-bg-color: #00007c;
   --primary-color: #0000af;
+  --secondary-color: #1f4488;
   --inverted-primary-color: #48c749;
-  --secondary-color: #081838;
   --inverted-secondary-color: #209a20;
+}
+
+.dark {
+  --bg-color: #00007c;
+  --inverted-bg-color: #bbb9b9;
+  --primary-color: #48c749;
+  --secondary-color: #209a20;
+  --inverted-primary-color: #0000af;
+  --inverted-secondary-color: #1f4488;
 }
 
 :root {
@@ -24,6 +24,9 @@
   --font-size-l: 24px;
   --font-line-l: 32px;
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+  --font-size-xl: 32px;
+  --font-line-xl: 40px;
+  --font-xl: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
   --navbar-height: 50px;
   --sidebar-width: 300px;
   --sidebar-width-collapsed: 80px;

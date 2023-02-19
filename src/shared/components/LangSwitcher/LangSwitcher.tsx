@@ -4,9 +4,10 @@ import { classNames } from 'shared/lib/classNames/classNames';
 
 type LangSwitcherProps = {
     className?: string;
+    isShort?: boolean;
 }
 
-export const LangSwitcher = ({ className }: LangSwitcherProps) => {
+export const LangSwitcher = ({ className, isShort }: LangSwitcherProps) => {
   const { t, i18n } = useTranslation();
 
   const toggle = async () => {
@@ -19,7 +20,7 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
       className={classNames('', {}, [className])}
       onClick={toggle}
     >
-      {t('language')}
+      {t(isShort ? 'short_lan' : 'language')}
     </Button>
   );
 };
