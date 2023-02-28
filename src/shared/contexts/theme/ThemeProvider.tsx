@@ -3,8 +3,12 @@ import React, { FC, useMemo, useState } from 'react';
 
 const defaultTheme = localStorage.getItem(THEME_KEY) as ThemesType || 'light';
 
-export const ThemeProvider: FC = ({ children }) => {
-  const [theme, setTheme] = useState<ThemesType>(defaultTheme);
+interface ThemeProviderProps {
+  initialTheme?: ThemesType;
+}
+
+export const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
+  const [theme, setTheme] = useState<ThemesType>(initialTheme || defaultTheme);
 
   const defaultThemeContext = useMemo(() => ({
     theme,

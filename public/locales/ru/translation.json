@@ -8,5 +8,6 @@
   "main": "Главная страница",
   "about": "О нас",
   "toggle": "Переключить",
-  "short_lan": "En"
+  "short_lan": "En",
+  "enter": "Войти"
 }

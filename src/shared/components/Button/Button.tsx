@@ -5,7 +5,7 @@ import style from './Button.module.scss';
 type ButtonProps = {
     className?: string;
     // toDo
-    theme?: 'clear' | 'outline' | 'background' | 'background_inverted';
+    theme?: 'clear' | 'clear_inverted' | 'outline' | 'background' | 'background_inverted';
     size?: 'size_m' | 'size_l' | 'size_xl';
     isSquare?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>
