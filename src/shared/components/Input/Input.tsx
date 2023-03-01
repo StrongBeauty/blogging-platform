@@ -4,7 +4,7 @@ import {
 import { classNames } from 'shared/lib/classNames/classNames';
 import style from './Input.module.scss';
 // ToDo
-// type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'onFocus'>
 
 type InputProps = {
     className?: string;
@@ -13,7 +13,7 @@ type InputProps = {
     placeholder?: string;
     type?: string;
     autofocus?: boolean;
-} & InputHTMLAttributes<HTMLInputElement>
+} & HTMLInputProps
 
 export const Input = memo(({
   className,
@@ -47,7 +47,7 @@ export const Input = memo(({
       <input
         ref={ref}
         className={style.input}
-        type="text"
+        type={type}
         value={value}
         onChange={onChangeHandler}
         {...otherProps}

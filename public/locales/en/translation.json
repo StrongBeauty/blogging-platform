@@ -10,6 +10,9 @@
   "toggle": "TOGGLE",
   "short_lan": "Ru",
   "enter": "Enter",
+  "exit": "Exit",
   "login": "Login",
-  "password": "Password"
+  "password": "Password",
+  "authorization": "Authorization",
+  "incorrect_data": "Incorrect login or password"
 }

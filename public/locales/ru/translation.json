@@ -10,6 +10,9 @@
   "toggle": "Переключить",
   "short_lan": "En",
   "enter": "Войти",
+  "exit": "Выйти",
   "login": "Логин",
-  "password": "Пароль"
+  "password": "Пароль",
+  "authorization": "Авторизация",
+  "incorrect_data": "Неправильный логин или пароль"
 }
