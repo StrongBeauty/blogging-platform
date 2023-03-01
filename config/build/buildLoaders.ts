@@ -1,9 +1,9 @@
 import webpack from 'webpack';
-import { BuildOptions } from './types/config';
+import { BuildOptionsType } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders({ isDev }: BuildOptionsType): webpack.RuleSetRule[] {
   const typescriptLoader = {
     test: /\.tsx?$/,
     use: 'ts-loader',

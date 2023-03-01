@@ -9,5 +9,7 @@
   "about": "О нас",
   "toggle": "Переключить",
   "short_lan": "En",
-  "enter": "Войти"
+  "enter": "Войти",
+  "login": "Логин",
+  "password": "Пароль"
 }

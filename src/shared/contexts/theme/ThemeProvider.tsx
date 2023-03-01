@@ -3,7 +3,7 @@ import React, { FC, useMemo, useState } from 'react';
 
 const defaultTheme = localStorage.getItem(THEME_KEY) as ThemesType || 'light';
 
-interface ThemeProviderProps {
+type ThemeProviderProps = {
   initialTheme?: ThemesType;
 }
 

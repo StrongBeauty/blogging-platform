@@ -9,10 +9,14 @@ type ModalProps = {
     children?: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
+    isLazy?: boolean;
 }
 // ToDo - stories
-export const Modal = ({ children, isOpen, onClose }: ModalProps) => {
+export const Modal = ({
+  children, isOpen, onClose, isLazy,
+}: ModalProps) => {
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const closeHandler = useCallback(() => {
@@ -35,6 +39,12 @@ export const Modal = ({ children, isOpen, onClose }: ModalProps) => {
     }
   }, [closeHandler]);
 
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
+
   useEffect(() => () => {
     clearTimeout(timerRef.current);
   }, []);
@@ -53,6 +63,10 @@ export const Modal = ({ children, isOpen, onClose }: ModalProps) => {
     [style.opened]: isOpen,
     [style.isClosing]: isClosing,
   };
+
+  if (isLazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>
