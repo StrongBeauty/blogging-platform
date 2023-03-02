@@ -1,4 +1,4 @@
-export type LoginSchema = {
+export type LoginStateType = {
   userName: string;
   password: string;
   isLoading: boolean;

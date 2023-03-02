@@ -1,5 +1,5 @@
 import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUserName';
+import { LoginStateType } from 'features/AuthByUserName';
 import {
   AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
@@ -8,7 +8,7 @@ export type StateType = {
     user: UserSchema;
 
     // Async reducer
-    loginForm?: LoginSchema;
+    loginForm?: LoginStateType;
 }
 
 export type StateKeyType = keyof StateType;
