@@ -21,11 +21,12 @@ export function buildPlugins(path: string, isDev: boolean): webpack.WebpackPlugi
 
   if (isDev) {
     plugins.push(
-      new BundleAnalyzerPlugin({
-        openAnalyzer: false,
-      }),
-    // new webpack.HotModuleReplacementPlugin(),
+        new BundleAnalyzerPlugin({
+          openAnalyzer: false,
+        }),
     );
+
+    // plugins.push(new webpack.HotModuleReplacementPlugin()),
   }
 
   return plugins;

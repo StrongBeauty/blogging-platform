@@ -1,5 +1,6 @@
 import React, { ErrorInfo, Suspense } from 'react';
 import PageError from 'widgets/PageError/PageError';
+import { PageLoader } from 'widgets/PageLoader';
 
 type ErrorBoundaryProps = {
     children: React.ReactNode;
@@ -32,7 +33,7 @@ export class ErrorBoundary
 
     if (hasError) {
       return (
-        <Suspense fallback="">
+        <Suspense fallback={<PageLoader />}>
           <PageError />
         </Suspense>
       );

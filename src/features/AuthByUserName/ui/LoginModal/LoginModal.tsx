@@ -1,5 +1,7 @@
+import { Suspense } from 'react';
 import { Modal } from 'shared/components/Modal/Modal';
-import { LoginForm } from '../LoginForm/LoginForm';
+import { PageLoader } from 'widgets/PageLoader';
+import { LoginFormLazy } from '../LoginForm/LoginFormLazy';
 
 type LoginModalType = {
   isOpen: boolean;
@@ -12,6 +14,8 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalType) => (
     onClose={onClose}
     isLazy
   >
-    <LoginForm onClose={onClose} />
+    <Suspense fallback={<PageLoader />}>
+      <LoginFormLazy />
+    </Suspense>
   </Modal>
 );

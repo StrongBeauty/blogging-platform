@@ -21,13 +21,18 @@ export const Navbar = () => {
   }, []);
 
   const onLogout = useCallback(() => {
+    // ToDo
+    setIsAuthModal(false);
     dispatch(userActions.logout());
   }, [dispatch]);
 
   if (authData) {
     return (
       <div className={style.navbar}>
-        <Button theme="clear_inverted" onClick={onLogout}>
+        <Button
+          theme="clear_inverted"
+          onClick={onLogout}
+        >
           {t('exit')}
         </Button>
       </div>
@@ -35,10 +40,19 @@ export const Navbar = () => {
   }
   return (
     <div className={style.navbar}>
-      <Button theme="clear_inverted" onClick={onShowModal}>
+      <Button
+        theme="clear_inverted"
+        onClick={onShowModal}
+      >
         {t('enter')}
       </Button>
-      <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+      {isAuthModal
+          && (
+            <LoginModal
+              isOpen={isAuthModal}
+              onClose={onCloseModal}
+            />
+          )}
     </div>
   );
 };
