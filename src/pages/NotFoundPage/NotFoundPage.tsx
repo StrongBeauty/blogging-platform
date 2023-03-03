@@ -6,7 +6,7 @@ export const NotFoundPage = () => {
 
   return (
     <div className={style.block}>
-      {t('not_found')}
+      {t('pages.not_found')}
     </div>
   );
 };

@@ -1,12 +1,8 @@
 {
   "about_us": "About us",
   "language": "Russian",
-  "main_page": "Main page",
-  "not_found": "Page Not Found",
   "wrong_message": "Something went wrong..",
   "upload": "Upload",
-  "main": "Main Page",
-  "about": "About Page",
   "toggle": "TOGGLE",
   "short_lan": "Ru",
   "enter": "Enter",
@@ -14,5 +10,16 @@
   "login": "Login",
   "password": "Password",
   "authorization": "Authorization",
-  "incorrect_data": "Incorrect login or password"
+  "incorrect_data": "Incorrect login or password",
+  "pages": {
+    "main": "Main Page",
+    "about": "About Page",
+    "profile": "Profile Page",
+    "not_found": "Page Not Found"
+  },
+  "links": {
+    "main": "Main",
+    "about": "About",
+    "profile": "Profile"
+  }
 }

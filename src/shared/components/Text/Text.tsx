@@ -1,4 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
+import { memo } from 'react';
 import style from './Text.module.scss';
 
 type TextProps = {
@@ -10,11 +11,11 @@ type TextProps = {
 }
 
 // ToDo - stories
-export const Text = ({
+export const Text = memo(({
   className, title, text, theme = 'normal',
 }: TextProps) => (
   <div className={classNames('', {}, [className, style[theme]])}>
     {title && <p className={style.title}>{title}</p>}
     {text && <p className={style.text}>{text}</p>}
   </div>
-);
+));

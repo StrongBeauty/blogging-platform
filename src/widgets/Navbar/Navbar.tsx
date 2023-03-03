@@ -1,12 +1,12 @@
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { LoginModal } from 'features/AuthByUserName';
+import { LoginModal } from 'features/AuthByUsername';
 import { Button } from 'shared/components/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
 import style from './Navbar.module.scss';
 
-export const Navbar = () => {
+export const Navbar = memo(() => {
   const authData = useSelector(getUserAuthData);
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -21,8 +21,6 @@ export const Navbar = () => {
   }, []);
 
   const onLogout = useCallback(() => {
-    // ToDo
-    setIsAuthModal(false);
     dispatch(userActions.logout());
   }, [dispatch]);
 
@@ -55,4 +53,4 @@ export const Navbar = () => {
           )}
     </div>
   );
-};
+});

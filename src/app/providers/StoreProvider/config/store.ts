@@ -21,3 +21,5 @@ export const createReduxStore = (initialState?: StateType) => {
 
   return store;
 };
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'] // typeof store.dispatch

@@ -1,14 +1,16 @@
-import { UserSchema } from 'entities/User';
-import { LoginStateType } from 'features/AuthByUserName';
+import { UserStateType } from 'entities/User';
+import { LoginStateType } from 'features/AuthByUsername';
 import {
   AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
+import { ProfileStateType } from 'entities/Profile';
 
 export type StateType = {
-    user: UserSchema;
+    user: UserStateType;
 
     // Async reducer
     loginForm?: LoginStateType;
+    profile?: ProfileStateType;
 }
 
 export type StateKeyType = keyof StateType;

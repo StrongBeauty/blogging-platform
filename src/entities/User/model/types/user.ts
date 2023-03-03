@@ -1,8 +1,8 @@
 export type UserType = {
     id: string;
-    userName: string;
+    username: string;
 }
 
-export type UserSchema = {
+export type UserStateType = {
     authData?: UserType;
 }

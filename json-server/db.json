@@ -21,9 +21,18 @@
   "users": [
     {
       "id": "1",
-      "userName": "admin",
+      "username": "admin",
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "An",
+    "lastname": "V",
+    "age": "21",
+    "currency": "USD",
+    "country": "BLR",
+    "city": "Minsk",
+    "username": "admin",
+    "avatar": ""
+  }
 }
