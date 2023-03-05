@@ -8,8 +8,6 @@ export type ReducerListType = {
     [name in StateKeyType]?: Reducer;
 }
 
-type ReducerListEntryType = [StateKeyType, Reducer];
-
 type DynamicModuleLoaderType = {
     reducers: ReducerListType;
     isRemoveAfterUnmount?: boolean;
@@ -22,16 +20,16 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderType> = ({
   const dispatch = useDispatch();
   /* eslint-disable */
   useEffect(() => {
-      Object.entries(reducers).forEach(([name, reducer]: ReducerListEntryType) => {
-          store.reducerManager.add(name, reducer);
+      Object.entries(reducers).forEach(([name, reducer]) => {
+          store.reducerManager.add(name  as StateKeyType, reducer);
           dispatch({ type: `@INIT ${name} reducer` });
       })
 
 
     return () => {
       if (isRemoveAfterUnmount) {
-          Object.entries(reducers).forEach(([name, ]: ReducerListEntryType) => {
-        store.reducerManager.remove(name);
+          Object.entries(reducers).forEach(([name, ]) => {
+        store.reducerManager.remove(name as StateKeyType);
         dispatch({ type: `@DESTROY ${name} reducer` });
           })
       }

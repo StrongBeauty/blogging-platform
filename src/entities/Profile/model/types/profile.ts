@@ -1,5 +1,5 @@
 export type ProfileType = {
-    'first': string,
+    'firstname': string,
     'lastname': string
     'age': string,
     'currency': string,

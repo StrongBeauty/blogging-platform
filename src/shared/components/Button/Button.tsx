@@ -1,7 +1,5 @@
-import {
-  FC, ButtonHTMLAttributes, memo, ReactNode,
-} from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
+import { classNames, ModesType } from 'shared/lib/classNames/classNames';
 import style from './Button.module.scss';
 
 type ButtonProps = {
@@ -17,13 +15,13 @@ type ButtonProps = {
 export const Button = memo(({
   children,
   className,
-  theme,
-  size,
+  theme = 'outline',
+  size = 'size_m',
   isSquare,
   isDisable,
   ...otherProps
 }: ButtonProps) => {
-  const mods: Record<string, boolean> = {
+  const mods: ModesType = {
     [style.square]: isSquare,
     [style.disabled]: isDisable,
   };
