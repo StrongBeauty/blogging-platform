@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "./dist/", // куда происходит сборка
     "noImplicitAny": true, // обязательное/нет явное указание типов
-    "module": "esNext", // модульная система
+    "module": "esNext", // модульная система сборки
     "target": "es2016", // в какую спецификацию комплилируется
     "jsx": "react-jsx", // не требяется import React
     "allowJs": true, //компилятор обрабатывает не только ts, но и js
@@ -15,7 +15,7 @@
     "esModuleInterop": true, // использовать import/export вместо common.js (require() module.export)
     "allowSyntheticDefaultImports": true, //использовать экспорт без *, даже у пакетов без дефолтного экспорта
   },
-  "ts-node": {
+  "ts-node": { // adding to module above
     "compilerOptions": {
       "module": "CommonJS"
     }

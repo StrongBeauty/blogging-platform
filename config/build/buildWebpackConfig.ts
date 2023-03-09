@@ -14,16 +14,16 @@ export function buildWebpackConfig(options: BuildOptionsType): webpack.Configura
     mode,
     entry: paths.entry,
     module: {
-      rules: buildLoaders(options),
+      rules: buildLoaders(options), // handlers for not js files
     },
     resolve: buildResolves(options),
-    output: {
-      filename: '[name].[contenthash].js',
+    output: { // cashing bundle
+      filename: '[name].[contenthash].js', // creating uniq names
       path: paths.build,
-      clean: true,
+      clean: true, // removing cash
     },
     plugins: buildPlugins(paths.html, isDev, apiUrl),
-    devtool: isDev ? 'inline-source-map' : undefined,
+    devtool: isDev ? 'inline-source-map' : undefined, // source map for dev mode
     devServer: isDev ? buildDevServer(options) : undefined,
   };
 }

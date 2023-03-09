@@ -5,7 +5,7 @@ import { buildSvgLoader } from './loaders/buildSvgLoader';
 
 export function buildLoaders({ isDev }: BuildOptionsType): webpack.RuleSetRule[] {
   const typescriptLoader = {
-    test: /\.tsx?$/,
+    test: /\.tsx?$/, // reg exp for ts/tsx
     use: 'ts-loader',
     exclude: /node_modules/,
   };

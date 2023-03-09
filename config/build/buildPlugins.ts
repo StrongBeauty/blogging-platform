@@ -5,11 +5,11 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 export function buildPlugins(path: string, isDev: boolean, apiUrl: string): webpack.WebpackPluginInstance[] {
   const plugins = [
-    new webpack.ProgressPlugin(),
-    new HtmlWebpackPlugin({
-      template: path,
+    new webpack.ProgressPlugin(), // showing progress of loading
+    new HtmlWebpackPlugin({ // creating of HTML files to serve webpack bundle
+      template: path, // using like template
     }),
-    new MiniCssExtractPlugin({
+    new MiniCssExtractPlugin({ // building css separately
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css',
     }),
