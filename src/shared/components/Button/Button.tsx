@@ -2,10 +2,19 @@ import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 import { classNames, ModesType } from 'shared/lib/classNames/classNames';
 import style from './Button.module.scss';
 
+export enum ButtonTheme {
+    clear,
+    clear_inverted,
+    outline,
+    outline_red,
+    background,
+    background_inverted
+}
+
 type ButtonProps = {
     className?: string;
-    // toDo
-    theme?: 'clear' | 'clear_inverted' | 'outline' | 'background' | 'background_inverted';
+    // toDo: enum ButtonTheme
+    theme?: 'clear' | 'clear_inverted' | 'outline' | 'outline_red' | 'background' | 'background_inverted';
     size?: 'size_m' | 'size_l' | 'size_xl';
     isSquare?: boolean;
     isDisable?: boolean;

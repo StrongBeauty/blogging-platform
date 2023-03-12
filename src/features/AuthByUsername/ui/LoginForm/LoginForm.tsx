@@ -55,7 +55,7 @@ const LoginForm = memo(({ onSuccess }: LoginFormProps) => {
     >
       <div className={style.block}>
         <Text title={t('authorization')} />
-        {error && <Text theme="error" text={error} />}
+        {error && <Text theme="error" text={t('error')} />}
         <Input
           className={style.input}
           placeholder={t('login')}

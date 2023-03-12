@@ -2,6 +2,7 @@
   "about_us": "About us",
   "language": "Russian",
   "wrong_message": "Something went wrong..",
+  "reload_message": "Try to reload the page",
   "upload": "Upload",
   "toggle": "TOGGLE",
   "short_lan": "Ru",
@@ -11,6 +12,10 @@
   "password": "Password",
   "authorization": "Authorization",
   "incorrect_data": "Incorrect login or password",
+  "error": "error",
+  "edit": "edit",
+  "save": "save",
+  "cancel": "cancel",
   "pages": {
     "main": "Main Page",
     "about": "About Page",
@@ -21,5 +26,13 @@
     "main": "Main",
     "about": "About",
     "profile": "Profile"
+  },
+  "profileData": {
+    "name": "name",
+    "lastname": "lastname",
+    "age": "age",
+    "city": "city",
+    "username": "username",
+    "avatar": "avatar"
   }
 }

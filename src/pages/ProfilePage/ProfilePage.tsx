@@ -1,7 +1,7 @@
 import { DynamicModuleLoader, ReducerListType } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { fetchProfileData, ProfileCard, profileReducer } from 'entities/Profile';
 import { useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { EditableProfileCard, fetchProfileData, profileReducer } from 'features/EditableProfileCard';
 
 const reducers: ReducerListType = {
   profile: profileReducer,
@@ -16,7 +16,7 @@ const ProfilePage = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers} isRemoveAfterUnmount>
-      <ProfileCard />
+      <EditableProfileCard />
     </DynamicModuleLoader>
   );
 };

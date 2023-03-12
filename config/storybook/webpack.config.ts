@@ -9,7 +9,7 @@ export default ({ config }: {config: webpack.Configuration}) => {
     build: '',
     html: '',
     entry: '',
-    src: path.resolve(__dirname, '..', '..', 'src'),
+    src: path.resolve(__dirname, '..', '..', 'src'), // path to src folder for absolute path
   };
   config!.resolve!.modules!.unshift(paths.src);
   config!.resolve!.extensions!.push('.ts', '.tsx');
@@ -22,10 +22,10 @@ export default ({ config }: {config: webpack.Configuration}) => {
     }
     return rule;
   });
-  config!.module!.rules.push(buildSvgLoader());
-  config!.module!.rules.push(buildCssLoader(true));
+  config!.module!.rules.push(buildSvgLoader()); // connecting svg
+  config!.module!.rules.push(buildCssLoader(true)); // connecting css
 
-  config!.plugins!.push(new DefinePlugin({
+  config!.plugins!.push(new DefinePlugin({ // loading global vars in storybook
     __IS_DEV__: JSON.stringify(true),
     __API__: JSON.stringify(''),
   }));

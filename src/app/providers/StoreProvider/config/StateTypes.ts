@@ -3,9 +3,9 @@ import { LoginStateType } from 'features/AuthByUsername';
 import {
   AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { ProfileStateType } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { NavigateOptions, To } from 'react-router-dom';
+import { ProfileStateType } from 'features/EditableProfileCard';
 
 export type StateType = {
     user: UserStateType;
@@ -36,4 +36,5 @@ export type ThunkExtraArg = {
 export type ThunkConfig<T> = {
     rejectValue: T;
     extra: ThunkExtraArg;
+    state: StateType;
 }

@@ -13,7 +13,7 @@ export function buildPlugins(path: string, isDev: boolean, apiUrl: string): webp
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css',
     }),
-    new webpack.DefinePlugin({
+    new webpack.DefinePlugin({ // using global vars in the app
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
     }),
@@ -22,7 +22,7 @@ export function buildPlugins(path: string, isDev: boolean, apiUrl: string): webp
 
   if (isDev) {
     plugins.push(
-      new BundleAnalyzerPlugin({
+      new BundleAnalyzerPlugin({ // counting bundle and chanks
         openAnalyzer: false,
       }),
     );

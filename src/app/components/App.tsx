@@ -18,6 +18,7 @@ export const App = () => {
 
   return (
     <div className={classNames('app', {}, [theme])}>
+      {/* for i18n */}
       <Suspense fallback={<PageLoader />}>
         <Navbar />
         <div className="content">
