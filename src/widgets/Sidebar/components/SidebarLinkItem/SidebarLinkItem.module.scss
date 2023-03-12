@@ -15,6 +15,7 @@
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
+
   .link {
     opacity: 0;
     transition: 0.2s opacity;
