@@ -4,6 +4,9 @@ import { AboutPageLazy } from 'pages/AboutPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePageLazy } from 'pages/ProfilePage/ProfilePageLazy';
 
+type AppRouteProps = RouteProps & {
+  authOnly?: boolean;
+}
 export type AppRoutesType = 'main' | 'about' | 'notFound' | 'profile';
 
 export const RoutePaths: Record<AppRoutesType, string> = {
@@ -14,7 +17,7 @@ export const RoutePaths: Record<AppRoutesType, string> = {
   notFound: '*',
 };
 
-export const routeConfig: Record<AppRoutesType, RouteProps> = {
+export const routeConfig: Record<AppRoutesType, AppRouteProps> = {
   main: {
     path: RoutePaths.main,
     element: <MainPageLazy />,
@@ -26,6 +29,7 @@ export const routeConfig: Record<AppRoutesType, RouteProps> = {
   profile: {
     path: RoutePaths.profile,
     element: <ProfilePageLazy />,
+    authOnly: true,
   },
   notFound: {
     path: RoutePaths.notFound,

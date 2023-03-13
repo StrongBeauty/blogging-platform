@@ -26,8 +26,13 @@
     }
   ],
   "profile": {
-    "lastname": "Волкова1",
+    "lastname": "Волкова",
     "firstname": "Анастасия",
-    "city": "Минск"
+    "age": "18",
+    "city": "Minsk",
+    "currency": "USD",
+    "country": "BLR",
+    "username": "admin",
+    "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfGPqFm5aVs_zycDn7bf7lvQo02Fk6VDqyFw&usqp=CAU"
   }
 }

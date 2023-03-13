@@ -1,12 +1,15 @@
+import { Currency } from 'entities/Currency';
+import { Countries } from 'entities/Country';
+
 export type ProfileType = {
-    'firstname'?: string,
-    'lastname'?: string
-    'age'?: number,
-    'currency'?: string,
-    'country'?: string,
-    'city'?: string,
-    'username'?: string,
-    'avatar'?: string
+    firstname?: string,
+    lastname?: string
+    age?: number,
+    currency?: Currency,
+    country?: Countries,
+    city?: string,
+    username?: string,
+    avatar?: string
 }
 
 export type ProfileStateType = {
