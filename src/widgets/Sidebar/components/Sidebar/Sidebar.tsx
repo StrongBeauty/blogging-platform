@@ -7,11 +7,7 @@ import { SidebarLinkItem } from 'widgets/Sidebar/components/SidebarLinkItem/Side
 import style from './Sidebar.module.scss';
 import { SidebarItemsList } from '../../model/SidebarItems';
 
-type SidebarProps = {
-    className?: string;
-}
-
-export const Sidebar = memo(({ className }: SidebarProps) => {
+export const Sidebar = memo(() => {
   const [collapsed, setCollapsed] = useState(false);
 
   const onToggle = () => {
@@ -29,7 +25,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   return (
     <div
       data-testid="sidebar"
-      className={classNames(style.sidebar, { [style.collapsed]: collapsed }, [className])}
+      className={classNames(style.sidebar, { [style.collapsed]: collapsed }, [])}
     >
       <Button
         data-testid="sidebar-toggle-btn"
