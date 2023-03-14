@@ -34,5 +34,12 @@
     "city": "city",
     "username": "username",
     "avatar": "avatar"
-  }
+  },
+  "incorrect": {
+    "user": "incorrect username",
+    "age":  "incorrect age",
+    "server": "server error",
+    "data":  "data error",
+    "country": "incorrect country"
+ }
 }

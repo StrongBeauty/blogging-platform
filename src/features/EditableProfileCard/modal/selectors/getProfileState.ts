@@ -11,6 +11,8 @@ export const getProfileIsLoading = (state: StateType) => state.profile?.isLoadin
 
 export const getProfileReadonly = (state: StateType) => state.profile?.readonly;
 
+export const getProfileValidateError = (state: StateType) => state.profile?.validateErrors;
+
 export const getProfileFormData = createSelector(
   getProfileData,
   getProfileForm,
