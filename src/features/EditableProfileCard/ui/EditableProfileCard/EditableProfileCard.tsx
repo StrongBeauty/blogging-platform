@@ -12,7 +12,7 @@ import { Countries } from 'entities/Country';
 import { Text } from 'shared/components/Text/Text';
 import { ValidateProfileError } from 'features/EditableProfileCard/modal/types/profile';
 import { useTranslation } from 'react-i18next';
-import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
+import { ProfilePageHeader } from '../ProfilePageHeader/ProfilePageHeader';
 
 export const EditableProfileCard = () => {
   const { t } = useTranslation();

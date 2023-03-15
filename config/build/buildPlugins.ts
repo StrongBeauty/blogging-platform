@@ -3,7 +3,12 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
-export function buildPlugins(path: string, isDev: boolean, apiUrl: string): webpack.WebpackPluginInstance[] {
+export function buildPlugins(
+  path: string,
+  isDev: boolean,
+  apiUrl: string,
+  project: string,
+): webpack.WebpackPluginInstance[] {
   const plugins = [
     new webpack.ProgressPlugin(), // showing progress of loading
     new HtmlWebpackPlugin({ // creating of HTML files to serve webpack bundle
@@ -16,6 +21,7 @@ export function buildPlugins(path: string, isDev: boolean, apiUrl: string): webp
     new webpack.DefinePlugin({ // using global vars in the app
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
+      __PROJECT__: JSON.stringify(project),
     }),
 
   ];

@@ -22,5 +22,6 @@ export default (env: BuildEnvType) => { // to allow receiving env vars from pack
     isDev,
     port: PORT,
     apiUrl,
+    project: 'frontend',
   });
 };

@@ -1,11 +1,10 @@
-import { Text } from 'shared/components/Text/Text';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import LoginForm from 'features/AuthByUsername/ui/LoginForm/LoginForm';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 
 export default {
   title: 'shared/LoginForm',
-  component: Text,
+  component: LoginForm,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
