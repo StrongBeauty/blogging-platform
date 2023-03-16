@@ -4,7 +4,7 @@ import { Button } from 'shared/components/Button';
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { profileActions } from 'features/EditableProfileCard';
-import { updateProfileData } from 'features/EditableProfileCard/modal/services/updateProfileData';
+import { updateProfileData } from 'features/EditableProfileCard/modal/services/updateProfileData/updateProfileData';
 import style from './ProfilePageHeader.module.scss';
 
 type ProfilePageHeaderProps = {
