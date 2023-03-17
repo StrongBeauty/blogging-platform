@@ -13,8 +13,18 @@ const Template: ComponentStory<typeof Sidebar> = () => <Sidebar />;
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({})];
+Light.decorators = [StoreDecorator({
+  user: { authData: {} },
+})];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator('dark'), StoreDecorator({})];
+Dark.decorators = [ThemeDecorator('dark'), StoreDecorator({
+  user: { authData: {} },
+})];
+
+export const NoAuth = Template.bind({});
+NoAuth.args = {};
+NoAuth.decorators = [StoreDecorator({
+  user: {},
+})];

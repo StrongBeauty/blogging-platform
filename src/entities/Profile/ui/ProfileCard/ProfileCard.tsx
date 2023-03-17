@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Text, TextAlign } from 'shared/components/Text/Text';
 import { Input } from 'shared/components/Input/Input';
-import { ProfileType } from 'features/EditableProfileCard/modal/types/profile';
+import { ProfileType } from 'features/EditableProfileCard/modal/types/profileStateType';
 import { PageLoader } from 'widgets/PageLoader';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/components/Avatar/Avatar';

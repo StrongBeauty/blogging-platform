@@ -10,7 +10,7 @@ import { profileActions } from 'features/EditableProfileCard';
 import { Currency } from 'entities/Currency';
 import { Countries } from 'entities/Country';
 import { Text } from 'shared/components/Text/Text';
-import { ValidateProfileError } from 'features/EditableProfileCard/modal/types/profile';
+import { ValidateProfileError } from 'features/EditableProfileCard/modal/types/profileStateType';
 import { useTranslation } from 'react-i18next';
 import { ProfilePageHeader } from '../ProfilePageHeader/ProfilePageHeader';
 

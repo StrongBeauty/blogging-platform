@@ -16,7 +16,7 @@ export const ProfilePageHeader = ({ readonly }: ProfilePageHeaderProps) => {
   const dispatch = useAppDispatch();
 
   const editHandler = useCallback(() => {
-    dispatch(profileActions.setReadonly());
+    dispatch(profileActions.writable());
   }, [dispatch]);
 
   const cancelHandler = useCallback(() => {

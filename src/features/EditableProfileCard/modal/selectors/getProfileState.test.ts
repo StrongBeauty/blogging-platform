@@ -6,7 +6,7 @@ import {
   getProfileError,
   getProfileForm, getProfileFormData, getProfileIsLoading, getProfileReadonly, getProfileValidateError,
 } from 'features/EditableProfileCard/modal/selectors/getProfileState';
-import { ValidateProfileError } from 'features/EditableProfileCard/modal/types/profile';
+import { ValidateProfileError } from 'features/EditableProfileCard/modal/types/profileStateType';
 
 const data = {
   lastname: 'Волкова',

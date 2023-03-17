@@ -1,4 +1,4 @@
-import { ProfileType, ValidateProfileError } from 'features/EditableProfileCard/modal/types/profile';
+import { ProfileType, ValidateProfileError } from 'features/EditableProfileCard/modal/types/profileStateType';
 
 export const validateProfileData = (profile?: ProfileType) => {
   if (!profile) {

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
-import { ProfileStateType, ProfileType } from '../types/profile';
+import { ProfileStateType, ProfileType } from '../types/profileStateType';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
 
 const initialState: ProfileStateType = {
@@ -14,7 +14,7 @@ const profileSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
-    setReadonly: (state) => {
+    writable: (state) => {
       state.readonly = false;
     },
     cancelEdit: (state) => {
