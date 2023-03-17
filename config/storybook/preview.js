@@ -3,6 +3,7 @@ import i18n from './i18next.js';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator';
+import { Theme } from '../../src/shared/contexts/theme';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -21,5 +22,5 @@ export const parameters = {
 };
 
 addDecorator(StyleDecorator);
-addDecorator(ThemeDecorator('light'));
+addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(RouterDecorator);

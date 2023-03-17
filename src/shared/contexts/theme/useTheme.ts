@@ -1,23 +1,36 @@
 import { useContext } from 'react';
-import { THEME_KEY, ThemeContext, ThemesType } from './ThemeContext';
+import { Theme, THEME_KEY, ThemeContext } from './ThemeContext';
 
 type UseThemeResultType = {
     toggleTheme: () => void;
-    theme: ThemesType;
+    theme: Theme;
 }
 
 export const useTheme = (): UseThemeResultType => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
-    const currentTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme?.(currentTheme);
-    document.body.className = currentTheme;
-    localStorage.setItem(THEME_KEY, currentTheme);
+    let newTheme: Theme;
+    switch (theme) {
+    case Theme.DARK:
+      newTheme = Theme.PURPLE;
+      break;
+    case Theme.LIGHT:
+      newTheme = Theme.DARK;
+      break;
+    case Theme.PURPLE:
+      newTheme = Theme.LIGHT;
+      break;
+    default:
+      newTheme = Theme.LIGHT;
+    }
+    setTheme?.(newTheme);
+    document.body.className = newTheme;
+    localStorage.setItem(THEME_KEY, newTheme);
   };
 
   return {
-    theme: theme || 'light',
+    theme: theme || Theme.LIGHT,
     toggleTheme,
   };
 };

@@ -7,7 +7,7 @@ import { buildDevServer } from './buildDevServer';
 
 export function buildWebpackConfig(options: BuildOptionsType): webpack.Configuration {
   const {
-    mode, paths, isDev, apiUrl,
+    mode, paths, isDev, apiUrl, project,
   } = options;
 
   return {
@@ -22,7 +22,7 @@ export function buildWebpackConfig(options: BuildOptionsType): webpack.Configura
       path: paths.build,
       clean: true, // removing cash
     },
-    plugins: buildPlugins(paths.html, isDev, apiUrl),
+    plugins: buildPlugins(paths.html, isDev, apiUrl, project),
     devtool: isDev ? 'inline-source-map' : undefined, // source map for dev mode
     devServer: isDev ? buildDevServer(options) : undefined,
   };

@@ -1,3 +1,4 @@
+import { Theme } from 'shared/contexts/theme';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
@@ -19,7 +20,7 @@ Light.decorators = [StoreDecorator({
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator('dark'), StoreDecorator({
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
   user: { authData: {} },
 })];
 

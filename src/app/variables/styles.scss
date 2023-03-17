@@ -2,8 +2,8 @@
   --bg-color: #bbb9b9;
   --inverted-bg-color: #00007c;
   --primary-color: #0000af;
-  --secondary-color: #1f4488;
   --inverted-primary-color: #48c749;
+  --secondary-color: #1f4488;
   --inverted-secondary-color: #209a20;
 }
 
@@ -11,9 +11,18 @@
   --bg-color: #00007c;
   --inverted-bg-color: #bbb9b9;
   --primary-color: #48c749;
-  --secondary-color: #209a20;
   --inverted-primary-color: #0000af;
+  --secondary-color: #209a20;
   --inverted-secondary-color: #1f4488;
+}
+
+.purple {
+  --bg-color: #907e94;
+  --inverted-bg-color: #faf4fb;
+  --primary-color: #faf4fb;
+  --inverted-primary-color: #907e94;
+  --secondary-color: #706b80;
+  --inverted-secondary-color: #faf4fb;
 }
 
 :root {

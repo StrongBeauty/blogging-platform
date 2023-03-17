@@ -7,10 +7,15 @@ import { AppRouter } from 'app/providers/router';
 import { useDispatch } from 'react-redux';
 import { userActions } from 'entities/User';
 import { PageLoader } from 'widgets/PageLoader';
+import { Theme } from 'shared/contexts/theme';
 
 export const App = () => {
   const { theme } = useTheme();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    document.body.className = Theme.LIGHT;
+  }, []);
 
   useEffect(() => {
     dispatch(userActions.initAuthData);

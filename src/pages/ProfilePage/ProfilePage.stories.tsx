@@ -4,6 +4,7 @@ import ProfilePage from 'pages/ProfilePage/ProfilePage';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Currency } from 'entities/Currency';
 import { Countries } from 'entities/Country';
+import { Theme } from 'shared/contexts/theme';
 
 export default {
   title: 'pages/ProfilePage',
@@ -32,7 +33,7 @@ Primary.decorators = [StoreDecorator({
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator('dark'), StoreDecorator({
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
   profile: {
     data: {
       lastname: 'Волкова',

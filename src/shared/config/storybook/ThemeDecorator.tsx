@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
-import { ThemeProvider } from 'shared/contexts/theme';
+import { Theme, ThemeProvider } from 'shared/contexts/theme';
 
-export const ThemeDecorator = (theme: 'light' | 'dark') => (StoryComponent: Story) => (
+export const ThemeDecorator = (theme: Theme.LIGHT | Theme.DARK) => (StoryComponent: Story) => (
   <ThemeProvider initialTheme={theme}>
     <div className={`app ${theme}`}>
       <StoryComponent />
