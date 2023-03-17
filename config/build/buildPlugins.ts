@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import ReactRefreshWepbackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 export function buildPlugins(
   path: string,
@@ -27,6 +28,7 @@ export function buildPlugins(
   ];
 
   if (isDev) {
+    plugins.push(new ReactRefreshWepbackPlugin());
     plugins.push(
       new BundleAnalyzerPlugin({ // counting bundle and chanks
         openAnalyzer: false,
