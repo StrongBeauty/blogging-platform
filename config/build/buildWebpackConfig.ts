@@ -21,6 +21,7 @@ export function buildWebpackConfig(options: BuildOptionsType): webpack.Configura
       filename: '[name].[contenthash].js', // creating uniq names
       path: paths.build,
       clean: true, // removing cash
+      publicPath: '/',
     },
     plugins: buildPlugins(paths.html, isDev, apiUrl, project),
     devtool: isDev ? 'inline-source-map' : undefined, // source map for dev mode

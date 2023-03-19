@@ -22,12 +22,14 @@
     "main": "Main Page",
     "about": "About Page",
     "profile": "Profile Page",
+    "article": "Article Page",
     "not_found": "Page Not Found"
   },
   "links": {
     "main": "Main",
     "about": "About",
-    "profile": "Profile"
+    "profile": "Profile",
+    "article": "Articles"
   },
   "profileData": {
     "name": "name",
