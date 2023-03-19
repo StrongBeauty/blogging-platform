@@ -30,7 +30,7 @@ export const CountrySelect = memo(({
   return (
     <Select
       className={classNames('', {}, [className])}
-      label={t('Countries')}
+      label={t('countries')}
       options={options}
       value={value}
       onChange={onChangeHandler}
