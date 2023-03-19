@@ -7,34 +7,36 @@ import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
 import { NavigateOptions, To } from 'react-router';
 import { ProfileStateType } from 'features/EditableProfileCard';
+import { ArticleDetailsStateType } from 'entities/Article';
 
-export interface StateType {
+export type StateType = {
     user: UserStateType;
 
     // Асинхронные редюсеры
     loginForm?: LoginStateType;
     profile?: ProfileStateType;
+    articleDetails?: ArticleDetailsStateType;
 }
 
 export type StateSchemaKey = keyof StateType;
 
-export interface ReducerManager {
+export type ReducerManager = {
     getReducerMap: () => ReducersMapObject<StateType>;
     reduce: (state: StateType, action: AnyAction) => CombinedState<StateType>;
     add: (key: StateSchemaKey, reducer: Reducer) => void;
     remove: (key: StateSchemaKey) => void;
 }
 
-export interface ReduxStoreManagerType extends EnhancedStore<StateType> {
+export type ReduxStoreManagerType = {
     reducerManager: ReducerManager;
-}
+} & EnhancedStore<StateType>;
 
-export interface ThunkExtraArg {
+export type ThunkExtraArg = {
     api: AxiosInstance;
     navigate?: (to: To, options?: NavigateOptions) => void,
 }
 
-export interface ThunkConfig<T> {
+export type ThunkConfig<T> = {
     rejectValue: T;
     extra: ThunkExtraArg;
     state: StateType;
