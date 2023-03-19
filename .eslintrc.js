@@ -30,7 +30,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     // to enable absolute import
     'import/prefer-default-export': 'off',
-    'no-unused-vars': 'warn',
+    'no-unused-vars': 'off',
     'react/require-default-props': 'off',
     // to enable optional props without default value
     'react/react-in-jsx-scope': 'off',

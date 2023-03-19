@@ -1,9 +1,10 @@
+import { RoutePath } from 'shared/config/route/routeConfig';
 import { SVGProps, VFC } from 'react';
 import AboutPageIcon from 'shared/assets/icons/about_page.svg';
 import MainPageIcon from 'shared/assets/icons/main_page.svg';
 import ProfilePageIcon from 'shared/assets/icons/profile_page.svg';
 
-export type SidebarItemType = {
+export interface SidebarItemType {
     path: string;
     text: string;
     Icon: VFC<SVGProps<SVGSVGElement>>;
@@ -11,19 +12,18 @@ export type SidebarItemType = {
 }
 
 export const SidebarItemsList: SidebarItemType[] = [
-  // ToDo: paths
   {
-    path: '/',
+    path: RoutePath.main,
     Icon: MainPageIcon,
     text: 'links.main',
   },
   {
-    path: '/about',
+    path: RoutePath.about,
     Icon: AboutPageIcon,
     text: 'links.about',
   },
   {
-    path: '/profile',
+    path: RoutePath.profile,
     Icon: ProfilePageIcon,
     text: 'links.profile',
     authOnly: true,

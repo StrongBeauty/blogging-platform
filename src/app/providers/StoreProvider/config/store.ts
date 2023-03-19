@@ -1,20 +1,19 @@
-import {
-  CombinedState, configureStore, Reducer, ReducersMapObject,
-} from '@reduxjs/toolkit';
+import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { userReducer } from 'entities/User';
-import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
+import { NavigateOptions, To } from 'react-router';
+import { CombinedState, Reducer } from 'redux';
 import { api } from 'shared/api/api';
-import { NavigateOptions, To } from 'react-router-dom';
-import { StateType, ThunkExtraArg } from '../../StoreProvider';
+import { StateType, ThunkExtraArg } from './StateType';
+import { createReducerManager } from './reducerManager';
 
-export const createReduxStore = (
+export function createReduxStore(
   initialState?: StateType,
   asyncReducers?: ReducersMapObject<StateType>,
-  navigate?: (to: To, options?: NavigateOptions)=> void,
-) => {
+  navigate?: (to: To, options?: NavigateOptions) => void,
+) {
   const rootReducers: ReducersMapObject<StateType> = {
-    user: userReducer,
     ...asyncReducers,
+    user: userReducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);
@@ -39,6 +38,6 @@ export const createReduxStore = (
   store.reducerManager = reducerManager;
 
   return store;
-};
+}
 
-export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'] // typeof store.dispatch
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

@@ -1,26 +1,14 @@
 import { DynamicModuleLoader, ReducerListType } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useEffect } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { EditableProfileCard, fetchProfileData, profileReducer } from 'features/EditableProfileCard';
+import { EditableProfileCard, profileReducer } from 'features/EditableProfileCard';
 
 const reducers: ReducerListType = {
   profile: profileReducer,
 };
 
-const ProfilePage = () => {
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
-    }
-  }, [dispatch]);
-
-  return (
-    <DynamicModuleLoader reducers={reducers} isRemoveAfterUnmount>
-      <EditableProfileCard />
-    </DynamicModuleLoader>
-  );
-};
+const ProfilePage = () => (
+  <DynamicModuleLoader reducers={reducers} isRemoveAfterUnmount>
+    <EditableProfileCard />
+  </DynamicModuleLoader>
+);
 
 export default ProfilePage;

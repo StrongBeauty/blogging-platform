@@ -5,4 +5,5 @@ export type UserType = {
 
 export type UserStateType = {
     authData?: UserType;
+    _mounted: boolean;
 }

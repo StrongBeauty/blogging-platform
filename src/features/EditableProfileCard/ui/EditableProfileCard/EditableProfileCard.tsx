@@ -4,9 +4,9 @@ import {
   getProfileIsLoading, getProfileReadonly, getProfileValidateError,
 } from 'features/EditableProfileCard/modal/selectors/getProfileState';
 import { ProfileCard } from 'entities/Profile';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { profileActions } from 'features/EditableProfileCard';
+import { fetchProfileData, profileActions } from 'features/EditableProfileCard';
 import { Currency } from 'entities/Currency';
 import { Countries } from 'entities/Country';
 import { Text } from 'shared/components/Text/Text';
@@ -30,6 +30,12 @@ export const EditableProfileCard = () => {
     [ValidateProfileError.SERVER_ERROR]: t('incorrect.server'),
     [ValidateProfileError.NO_DATA]: t('incorrect.data'),
   };
+
+  useEffect(() => {
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
+  }, [dispatch]);
 
   const onChangeFirstname = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ firstname: value || '' }));
