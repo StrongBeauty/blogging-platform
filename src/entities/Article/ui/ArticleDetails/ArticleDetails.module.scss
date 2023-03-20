@@ -14,7 +14,7 @@
   margin-top: 15px;
 }
 
-.articleInfo {
+.article_info {
   display: flex;
   align-items: center;
 }
@@ -23,13 +23,12 @@
   margin-right: 8px;
 }
 
-.avatarWrapper {
+.avatar_block {
   display: flex;
   width: 100%;
   justify-content: center;
 }
 
-/*
-.block {
+.article_block {
   margin-top: 16px;
-}*/
+}

@@ -8,6 +8,11 @@ export enum TextAlign {
   center,
 }
 
+export enum TextSize {
+    M = 'size_m',
+    L = 'size_l',
+}
+
 type TextProps = {
     className?: string;
     title?: string;
@@ -15,15 +20,22 @@ type TextProps = {
     // ToDo
     theme?: 'normal' | 'error';
     align?: TextAlign;
+    size?: TextSize;
 }
 
 export const Text = memo(({
-  className, title, text, theme = 'normal', align = TextAlign.left,
+  className,
+  title,
+  text,
+  theme = 'normal',
+  align = TextAlign.left,
+  size = TextSize.M,
 }: TextProps) => {
   const adds = [
     className,
     style[theme],
     style[align],
+    style[size],
   ];
 
   return (

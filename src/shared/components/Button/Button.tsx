@@ -18,7 +18,7 @@ type ButtonProps = {
     size?: 'size_m' | 'size_l' | 'size_xl';
     isSquare?: boolean;
     isDisable?: boolean;
-    children: ReactNode;
+    children?: ReactNode;
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button = memo(({
