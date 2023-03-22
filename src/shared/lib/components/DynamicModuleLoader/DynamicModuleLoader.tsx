@@ -4,12 +4,12 @@ import { ReduxStoreManagerType, StateSchemaKey } from 'app/providers/StoreProvid
 import { Reducer } from '@reduxjs/toolkit';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
-export type ReducerListType = {
+export type ReducersListType = {
     [name in StateSchemaKey]?: Reducer;
 }
 
 interface DynamicModuleLoaderProps {
-    reducers: ReducerListType;
+    reducers: ReducersListType;
     isRemoveAfterUnmount?: boolean;
 }
 

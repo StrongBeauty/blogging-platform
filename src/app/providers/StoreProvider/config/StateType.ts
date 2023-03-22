@@ -8,6 +8,7 @@ import { AxiosInstance } from 'axios';
 import { NavigateOptions, To } from 'react-router';
 import { ProfileStateType } from 'features/EditableProfileCard';
 import { ArticleDetailsStateType } from 'entities/Article';
+import { ArticleCommentsStateType } from 'pages/ArticleDetailsPage';
 
 export type StateType = {
     user: UserStateType;
@@ -16,6 +17,7 @@ export type StateType = {
     loginForm?: LoginStateType;
     profile?: ProfileStateType;
     articleDetails?: ArticleDetailsStateType;
+    articleComments?: ArticleCommentsStateType;
 }
 
 export type StateSchemaKey = keyof StateType;

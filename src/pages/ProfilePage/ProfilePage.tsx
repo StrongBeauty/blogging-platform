@@ -1,7 +1,7 @@
-import { DynamicModuleLoader, ReducerListType } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersListType } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { EditableProfileCard, profileReducer } from 'features/EditableProfileCard';
 
-const reducers: ReducerListType = {
+const reducers: ReducersListType = {
   profile: profileReducer,
 };
 

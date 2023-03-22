@@ -23,6 +23,7 @@ export const CommentList = memo(({ className, comments, isLoading }: CommentList
                 className={style.comment}
                 key={com.text}
                 comment={com}
+                isLoading={isLoading}
               />
             ))
             : <Text text={t('wrong_message')} />}

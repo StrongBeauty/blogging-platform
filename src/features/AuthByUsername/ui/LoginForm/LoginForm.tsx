@@ -4,7 +4,7 @@ import { Input } from 'shared/components/Input/Input';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { Text } from 'shared/components/Text/Text';
-import { DynamicModuleLoader, ReducerListType } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersListType } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   getLoginError,
@@ -20,7 +20,7 @@ type LoginFormProps = {
   onSuccess: () => void;
 }
 
-const initialReducer: ReducerListType = {
+const initialReducer: ReducersListType = {
   loginForm: loginReducer,
 };
 
