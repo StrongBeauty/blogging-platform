@@ -4,6 +4,8 @@ import { Avatar } from 'shared/components/Avatar/Avatar';
 import { Text } from 'shared/components/Text/Text';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Skeleton } from 'shared/components/Skeleton/Skeleton';
+import { AppLink } from 'shared/components/AppLink';
+import { RoutePath } from 'shared/config/route/routeConfig';
 import style from './CommentCard.module.scss';
 
 type CommentCardPropsType = {
@@ -27,10 +29,10 @@ export const CommentCard = memo(({ className, comment, isLoading }: CommentCardP
   return (
 
     <div className={classNames(style.block, {}, [className])}>
-      <div className={style.block}>
+      <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={style.header}>
         { comment.user.avatar && <Avatar size={30} src={comment.user.avatar} /> }
         <Text className={style.username} title={comment.user.username} />
-      </div>
+      </AppLink>
       <Text text={comment.text} />
     </div>
   );

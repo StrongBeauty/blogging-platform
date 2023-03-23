@@ -4,7 +4,7 @@ import {
   getProfileIsLoading, getProfileReadonly, getProfileValidateError,
 } from 'features/EditableProfileCard/modal/selectors/getProfileState';
 import { ProfileCard } from 'entities/Profile';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchProfileData, profileActions } from 'features/EditableProfileCard';
 import { Currency } from 'entities/Currency';
@@ -12,6 +12,8 @@ import { Countries } from 'entities/Country';
 import { Text } from 'shared/components/Text/Text';
 import { ValidateProfileError } from 'features/EditableProfileCard/modal/types/profileStateType';
 import { useTranslation } from 'react-i18next';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from '../ProfilePageHeader/ProfilePageHeader';
 
 export const EditableProfileCard = () => {
@@ -22,6 +24,7 @@ export const EditableProfileCard = () => {
   const readonly = useSelector(getProfileReadonly);
   const validateErrors = useSelector(getProfileValidateError);
   const dispatch = useAppDispatch();
+  const { id } = useParams();
 
   const validateErrorTranslates = {
     [ValidateProfileError.INCORRECT_COUNTRY]: t('incorrect.country'),
@@ -31,11 +34,12 @@ export const EditableProfileCard = () => {
     [ValidateProfileError.NO_DATA]: t('incorrect.data'),
   };
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id));
     }
-  }, [dispatch]);
+  });
+  console.log(id);
 
   const onChangeFirstname = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ firstname: value || '' }));

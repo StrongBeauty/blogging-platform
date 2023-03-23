@@ -9,6 +9,7 @@ import { NavigateOptions, To } from 'react-router';
 import { ProfileStateType } from 'features/EditableProfileCard';
 import { ArticleDetailsStateType } from 'entities/Article';
 import { ArticleCommentsStateType } from 'pages/ArticleDetailsPage';
+import { AddCommentFormType } from 'features/AddCommentForm';
 
 export type StateType = {
     user: UserStateType;
@@ -18,6 +19,7 @@ export type StateType = {
     profile?: ProfileStateType;
     articleDetails?: ArticleDetailsStateType;
     articleComments?: ArticleCommentsStateType;
+    addCommentForm?: AddCommentFormType;
 }
 
 export type StateSchemaKey = keyof StateType;
