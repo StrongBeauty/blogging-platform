@@ -10,14 +10,14 @@ import style from './CommentCard.module.scss';
 
 type CommentCardPropsType = {
     className?: string;
-    comment: CommentType;
+    comment?: CommentType;
     isLoading?: boolean;
 }
 
 export const CommentCard = memo(({ className, comment, isLoading }: CommentCardPropsType) => {
   if (isLoading) {
     return (
-      <div className={classNames(style.block, {}, [className])}>
+      <div className={classNames(style.block, {}, [className, style.loading])}>
         <div className={style.header}>
           <Skeleton width={30} height={30} border="50%" />
           <Skeleton className={style.username} width={100} height={16} />
@@ -26,6 +26,11 @@ export const CommentCard = memo(({ className, comment, isLoading }: CommentCardP
       </div>
     );
   }
+
+  if (!comment) {
+    return null;
+  }
+
   return (
 
     <div className={classNames(style.block, {}, [className])}>

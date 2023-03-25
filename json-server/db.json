@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,18 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "new comment",
+      "id": "SIVSpRg"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "check",
+      "id": "0MjGTUo"
     }
   ],
   "users": [
@@ -120,16 +134,16 @@
   ],
   "profile": [
     {
-    "id": "1",
-    "lastname": "Волкова",
-    "firstname": "Анастасия",
-    "age": "18",
-    "city": "Minsk",
-    "currency": "USD",
-    "country": "BLR",
-    "username": "admin",
-    "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfGPqFm5aVs_zycDn7bf7lvQo02Fk6VDqyFw&usqp=CAU"
-  },
+      "id": "1",
+      "lastname": "Волкова",
+      "firstname": "Анастасия",
+      "age": 21,
+      "city": "Minsk",
+      "currency": "USD",
+      "country": "BLR",
+      "username": "admin",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfGPqFm5aVs_zycDn7bf7lvQo02Fk6VDqyFw&usqp=CAU"
+    },
     {
       "id": "2",
       "lastname": "V",

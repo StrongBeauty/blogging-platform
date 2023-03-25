@@ -1,4 +1,3 @@
-import { addCommentFormReducer } from 'features/AddCommentForm/model/slices/addCommentFormSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -6,7 +5,10 @@ import { DynamicModuleLoader, ReducersListType } from 'shared/lib/components/Dyn
 import { Button } from 'shared/components/Button';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Input } from 'shared/components/Input/Input';
+import { useSelector } from 'react-redux';
+import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
 import style from './AddCommentForm.module.scss';
+import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/getAddCommentForm';
 
 export interface AddCommentFormProps {
     className?: string;
@@ -17,9 +19,19 @@ const reducers: ReducersListType = {
   addCommentForm: addCommentFormReducer,
 };
 
-export const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps) => {
+const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps) => {
   const { t } = useTranslation();
+  const text = useSelector(getAddCommentFormText);
   const dispatch = useAppDispatch();
+
+  const onCommentTextChange = useCallback((value: string) => {
+    dispatch(addCommentFormActions.setText(value));
+  }, [dispatch]);
+
+  const onSendHandler = useCallback(() => {
+    onSendComment(text || '');
+    onCommentTextChange('');
+  }, [onCommentTextChange, onSendComment, text]);
 
   return (
     <DynamicModuleLoader reducers={reducers}>
@@ -27,9 +39,12 @@ export const AddCommentForm = memo(({ className, onSendComment }: AddCommentForm
         <Input
           className={style.input}
           placeholder={t('')}
+          value={text}
+          onChange={onCommentTextChange}
         />
         <Button
           theme="outline"
+          onClick={onSendHandler}
         >
           {t('')}
         </Button>
@@ -37,3 +52,4 @@ export const AddCommentForm = memo(({ className, onSendComment }: AddCommentForm
     </DynamicModuleLoader>
   );
 });
+export default AddCommentForm;
