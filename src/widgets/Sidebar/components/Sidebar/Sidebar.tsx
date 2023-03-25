@@ -4,23 +4,24 @@ import { ThemeSwitcher } from 'shared/components/ThemeSwitcher';
 import { LangSwitcher } from 'shared/components/LangSwitcher';
 import { Button } from 'shared/components/Button';
 import { SidebarLinkItem } from 'widgets/Sidebar/components/SidebarLinkItem/SidebarLinkItem';
+import { useSelector } from 'react-redux';
+import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import style from './Sidebar.module.scss';
-import { SidebarItemsList } from '../../model/SidebarItems';
 
 export const Sidebar = memo(() => {
   const [collapsed, setCollapsed] = useState(false);
-
+  const sidebarItemsList = useSelector(getSidebarItems);
   const onToggle = () => {
     setCollapsed((prev) => !prev);
   };
 
-  const itemList = useMemo(() => SidebarItemsList.map((item) => (
+  const itemList = useMemo(() => sidebarItemsList.map((item) => (
     <SidebarLinkItem
       key={item.path}
       item={item}
       collapsed={collapsed}
     />
-  )), [collapsed]);
+  )), [collapsed, sidebarItemsList]);
 
   return (
     <div
