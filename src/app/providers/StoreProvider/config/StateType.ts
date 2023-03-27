@@ -10,6 +10,7 @@ import { ProfileStateType } from 'features/EditableProfileCard';
 import { ArticleDetailsStateType } from 'entities/Article';
 import { ArticleCommentsStateType } from 'pages/ArticleDetailsPage';
 import { AddCommentFormType } from 'features/AddCommentForm';
+import { ArticlesPageType } from 'pages/ArticlesPage';
 
 export type StateType = {
     user: UserStateType;
@@ -20,6 +21,7 @@ export type StateType = {
     articleDetails?: ArticleDetailsStateType;
     articleComments?: ArticleCommentsStateType;
     addCommentForm?: AddCommentFormType;
+    articlesPage?: ArticlesPageType;
 }
 
 export type StateSchemaKey = keyof StateType;

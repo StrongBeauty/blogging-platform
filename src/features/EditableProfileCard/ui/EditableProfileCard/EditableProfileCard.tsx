@@ -9,7 +9,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchProfileData, profileActions } from 'features/EditableProfileCard';
 import { Currency } from 'entities/Currency';
 import { Countries } from 'entities/Country';
-import { Text } from 'shared/components/Text/Text';
+import { Text } from 'shared/ui/Text/Text';
 import { ValidateProfileError } from 'features/EditableProfileCard/modal/types/profileStateType';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -39,7 +39,6 @@ export const EditableProfileCard = () => {
       dispatch(fetchProfileData(id));
     }
   });
-  console.log(id);
 
   const onChangeFirstname = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ firstname: value || '' }));

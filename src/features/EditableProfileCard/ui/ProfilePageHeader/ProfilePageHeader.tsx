@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/components/Text/Text';
-import { Button } from 'shared/components/Button';
+import { Text } from 'shared/ui/Text/Text';
+import { Button } from 'shared/ui/Button';
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { profileActions } from 'features/EditableProfileCard';

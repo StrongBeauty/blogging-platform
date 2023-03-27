@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next';
-import { Text, TextAlign } from 'shared/components/Text/Text';
-import { Input } from 'shared/components/Input/Input';
+import { Text, TextAlign } from 'shared/ui/Text/Text';
+import { Input } from 'shared/ui/Input/Input';
 import { ProfileType } from 'features/EditableProfileCard/modal/types/profileStateType';
 import { PageLoader } from 'widgets/PageLoader';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Avatar } from 'shared/components/Avatar/Avatar';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Countries, CountrySelect } from 'entities/Country';
 import style from './ProfileCard.module.scss';

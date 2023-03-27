@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/components/Button';
-import { Input } from 'shared/components/Input/Input';
+import { Button } from 'shared/ui/Button';
+import { Input } from 'shared/ui/Input/Input';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
-import { Text } from 'shared/components/Text/Text';
+import { Text } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersListType } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {

@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { CommentType } from 'entities/Comment';
-import { Avatar } from 'shared/components/Avatar/Avatar';
-import { Text } from 'shared/components/Text/Text';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Text } from 'shared/ui/Text/Text';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Skeleton } from 'shared/components/Skeleton/Skeleton';
-import { AppLink } from 'shared/components/AppLink';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { AppLink } from 'shared/ui/AppLink';
 import { RoutePath } from 'shared/config/route/routeConfig';
 import style from './CommentCard.module.scss';
 

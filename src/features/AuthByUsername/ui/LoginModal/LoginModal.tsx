@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { Modal } from 'shared/components/Modal/Modal';
+import { Modal } from 'shared/ui/Modal/Modal';
 import { PageLoader } from 'widgets/PageLoader';
 import { LoginFormLazy } from '../LoginForm/LoginFormLazy';
 

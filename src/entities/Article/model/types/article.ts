@@ -1,3 +1,5 @@
+import { UserType } from 'entities/User';
+
 export enum ArticleBlockStyleType {
     CODE = 'CODE',
     IMAGE = 'IMAGE',
@@ -34,9 +36,15 @@ export enum ArticleStyleType {
     ECONOMICS = 'ECONOMICS'
 }
 
+export enum ArticleView {
+  BIG = 'big',
+  SMALL = 'small',
+}
+
 export type ArticleType = {
     id: string;
     title: string;
+    user: UserType;
     subtitle: string;
     img: string;
     views: number;

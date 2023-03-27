@@ -1,11 +1,11 @@
-import { AppLink } from 'shared/components/AppLink';
+import { AppLink } from 'shared/ui/AppLink';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
-import { SidebarItemType } from '../../model/SidebarItems';
 import style from './SidebarLinkItem.module.scss';
+import { SidebarItemType } from '../../model/types/sidebar';
 
 export type SidebarLinkItemProps = {
     item: SidebarItemType;

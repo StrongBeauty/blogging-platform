@@ -3,12 +3,12 @@ import { DynamicModuleLoader, ReducersListType } from 'shared/lib/components/Dyn
 import { memo, useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { Text, TextAlign, TextSize } from 'shared/components/Text/Text';
-import { Skeleton } from 'shared/components/Skeleton/Skeleton';
-import { Avatar } from 'shared/components/Avatar/Avatar';
+import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
-import { Icon } from 'shared/components/Icon';
+import { Icon } from 'shared/ui/Icon';
 import { ArticleCodeBlock } from 'entities/Article/ui/ArticleCodeBlock/ArticleCodeBlock';
 import { ArticleImageBlock } from 'entities/Article/ui/ArticleImageBlock/ArticleImageBlock';
 import { ArticleTextBlock } from 'entities/Article/ui/ArticleTextBlock/ArticleTextBlock';

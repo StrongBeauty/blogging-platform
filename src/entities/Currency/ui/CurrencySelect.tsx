@@ -1,5 +1,5 @@
 import { Currency } from 'entities/Currency';
-import { Select } from 'shared/components/Select/Select';
+import { Select } from 'shared/ui/Select/Select';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';

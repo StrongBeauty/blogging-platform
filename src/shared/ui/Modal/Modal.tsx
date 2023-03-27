@@ -2,7 +2,7 @@ import {
   ReactNode, MouseEvent, useState, useRef, useEffect, useCallback, MutableRefObject,
 } from 'react';
 import { classNames, ModesType } from 'shared/lib/classNames/classNames';
-import { Portal } from 'shared/components/Portal/Portal';
+import { Portal } from 'shared/ui/Portal/Portal';
 import style from './Modal.module.scss';
 
 type ModalProps = {
