@@ -1,4 +1,3 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { ArticleDetails } from 'entities/Article';
@@ -12,6 +11,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentFormLazy } from 'features/AddCommentForm';
 import { Button } from 'shared/ui/Button';
 import { RoutePath } from 'shared/config/route/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import {
   fetchCommentsByArticleId,
@@ -20,16 +20,11 @@ import { articleCommentsReducer, getArticleComments } from '../../model/slices/a
 import style from './ArticleDetailsPage.module.scss';
 import { getArticleCommentsIsLoading } from '../../model/selctors/getArticleComments';
 
-interface ArticleDetailsPageProps {
-    className?: string;
-}
-
 const reducers: ReducersListType = {
   articleComments: articleCommentsReducer,
 };
 
-const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
-  const { className } = props;
+const ArticleDetailsPage = () => {
   const { t } = useTranslation();
   const { id } = useParams();
   const dispatch = useAppDispatch();
@@ -57,7 +52,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} isRemoveAfterUnmount>
-      <div className={classNames(style.ArticleDetailsPage, {}, [className])}>
+      <Page>
         <Button
           theme="outline"
           onClick={onBackToList}
@@ -71,7 +66,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
           isLoading={isLoading}
           comments={comments}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

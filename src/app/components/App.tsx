@@ -29,7 +29,7 @@ export const App = () => {
       {/* for i18n */}
       <Suspense fallback={<PageLoader />}>
         <Navbar />
-        <div className="content">
+        <div className="content-page">
           <Sidebar />
           {mounted && <AppRouter />}
         </div>

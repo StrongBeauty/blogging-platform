@@ -73,7 +73,7 @@ export const EditableProfileCard = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <>
       <ProfilePageHeader readonly={readonly} />
       {validateErrors?.length && validateErrors.map((err) => (
         <Text key={err} theme="error" text={validateErrorTranslates[err]} />
@@ -92,6 +92,6 @@ export const EditableProfileCard = () => {
         onChangeCountry={onChangeCountry}
         readonly={readonly}
       />
-    </div>
+    </>
   );
 };
