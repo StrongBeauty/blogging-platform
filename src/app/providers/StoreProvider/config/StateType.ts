@@ -5,7 +5,6 @@ import {
 } from '@reduxjs/toolkit';
 import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
-import { NavigateOptions, To } from 'react-router';
 import { ProfileStateType } from 'features/EditableProfileCard';
 import { ArticleDetailsStateType } from 'entities/Article';
 import { ArticleCommentsStateType } from 'pages/ArticleDetailsPage';
@@ -24,13 +23,13 @@ export type StateType = {
     articlesPage?: ArticlesPageType;
 }
 
-export type StateSchemaKey = keyof StateType;
+export type StateTypeKey = keyof StateType;
 
 export type ReducerManager = {
     getReducerMap: () => ReducersMapObject<StateType>;
     reduce: (state: StateType, action: AnyAction) => CombinedState<StateType>;
-    add: (key: StateSchemaKey, reducer: Reducer) => void;
-    remove: (key: StateSchemaKey) => void;
+    add: (key: StateTypeKey, reducer: Reducer) => void;
+    remove: (key: StateTypeKey) => void;
 }
 
 export type ReduxStoreManagerType = {
@@ -39,7 +38,6 @@ export type ReduxStoreManagerType = {
 
 export type ThunkExtraArg = {
     api: AxiosInstance;
-    navigate?: (to: To, options?: NavigateOptions) => void,
 }
 
 export type ThunkConfig<T> = {

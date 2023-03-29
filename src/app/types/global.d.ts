@@ -19,5 +19,9 @@ type DeepPartial<T> = T extends object ? {
     [P in keyof T]?: DeepPartial<T[P]>;
 }: T;
 
+type OptionalRecord<K extends keyof any, T> = {
+    [P in K]?: T;
+};
+
 /* пакет react-scripts и файл react-route-env.d.ts с содержимым
-<reference types="react-scripts" заменяет global.d.tsF */
+<reference types="react-scripts" заменяет global.d.ts */

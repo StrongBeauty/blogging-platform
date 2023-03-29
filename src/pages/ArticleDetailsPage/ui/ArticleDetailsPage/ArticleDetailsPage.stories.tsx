@@ -1,5 +1,4 @@
-/* eslint-disable max-len */
-import React from 'react';
+/* eslint-disable */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ArticleBlockStyleType, ArticleStyleType, ArticleType } from 'entities/Article/model/types/article';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
@@ -8,12 +7,9 @@ import ArticleDetailsPage from './ArticleDetailsPage';
 export default {
   title: 'pages/ArticleDetailsPage',
   component: ArticleDetailsPage,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPage> = () => <ArticleDetailsPage />;
 
 const article: ArticleType = {
   id: '1',

@@ -8,4 +8,5 @@ export type ArticlesPageType = {
     page: number;
     limit?: number;
     hasMore: boolean;
+    _initialized?: boolean;
 } & EntityState<ArticleType>
