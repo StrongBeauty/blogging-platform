@@ -2,6 +2,7 @@ import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { userReducer } from 'entities/User';
 import { CombinedState, Reducer } from 'redux';
 import { api } from 'shared/api/api';
+import { pageReducer } from 'widgets/Page/model/slices/pageSlice';
 import { StateType, ThunkExtraArg } from './StateType';
 import { createReducerManager } from './reducerManager';
 
@@ -12,6 +13,7 @@ export function createReduxStore(
   const rootReducers: ReducersMapObject<StateType> = {
     ...asyncReducers,
     user: userReducer,
+    page: pageReducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);

@@ -10,9 +10,11 @@ import { ArticleDetailsStateType } from 'entities/Article';
 import { ArticleCommentsStateType } from 'pages/ArticleDetailsPage';
 import { AddCommentFormType } from 'features/AddCommentForm';
 import { ArticlesPageType } from 'pages/ArticlesPage';
+import { PageStateType } from 'widgets/Page';
 
 export type StateType = {
     user: UserStateType;
+    page: PageStateType;
 
     // Асинхронные редюсеры
     loginForm?: LoginStateType;
