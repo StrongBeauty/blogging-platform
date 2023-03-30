@@ -2,7 +2,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticleType } from 'entities/Article';
-import { ArticleBlockStyleType, ArticleStyleType } from 'entities/Article/model/types/article';
+import { ArticleBlockStyle, ArticleStyle } from 'entities/Article/model/types/article';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ArticleDetails } from './ArticleDetails';
 
@@ -27,11 +27,11 @@ const article: ArticleType = {
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
   createdAt: '26.02.2022',
-  type: [ArticleStyleType.IT],
+  type: [ArticleStyle.IT],
   blocks: [
     {
       id: '1',
-      type: ArticleBlockStyleType.TEXT,
+      type: ArticleBlockStyle.TEXT,
       title: 'Заголовок этого блока',
       paragraphs: [
         'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
@@ -41,12 +41,12 @@ const article: ArticleType = {
     },
     {
       id: '4',
-      type: ArticleBlockStyleType.CODE,
+      type: ArticleBlockStyle.CODE,
       code: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;',
     },
     {
       id: '5',
-      type: ArticleBlockStyleType.TEXT,
+      type: ArticleBlockStyle.TEXT,
       title: 'Заголовок этого блока',
       paragraphs: [
         'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',

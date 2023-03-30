@@ -20,7 +20,7 @@ import {
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../model/selectors/getArticleDetails';
-import { ArticleBlockStyleType, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlockStyle, ArticleBlockType } from '../../model/types/article';
 
 type ArticleDetailsPropsType = {
   id: string;
@@ -39,7 +39,7 @@ export const ArticleDetails = memo(({ id }: ArticleDetailsPropsType) => {
 
   const renderBlock = useCallback((block: ArticleBlockType) => {
     switch (block.type) {
-    case ArticleBlockStyleType.CODE:
+    case ArticleBlockStyle.CODE:
       return (
         <ArticleCodeBlock
           key={block.id}
@@ -47,7 +47,7 @@ export const ArticleDetails = memo(({ id }: ArticleDetailsPropsType) => {
           className={style.article_block}
         />
       );
-    case ArticleBlockStyleType.IMAGE:
+    case ArticleBlockStyle.IMAGE:
       return (
         <ArticleImageBlock
           key={block.id}
@@ -55,7 +55,7 @@ export const ArticleDetails = memo(({ id }: ArticleDetailsPropsType) => {
           className={style.article_block}
         />
       );
-    case ArticleBlockStyleType.TEXT:
+    case ArticleBlockStyle.TEXT:
       return (
         <ArticleTextBlock
           key={block.id}

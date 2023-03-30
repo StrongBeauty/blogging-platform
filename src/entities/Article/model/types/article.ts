@@ -1,6 +1,12 @@
 import { UserType } from 'entities/User';
 
-export enum ArticleBlockStyleType {
+export enum ArticleSortField {
+    VIEWS = 'views',
+    TITLE = 'title',
+    CREATED = 'createdAt',
+}
+
+export enum ArticleBlockStyle {
     CODE = 'CODE',
     IMAGE = 'IMAGE',
     TEXT = 'TEXT',
@@ -8,29 +14,30 @@ export enum ArticleBlockStyleType {
 
 export type ArticleBlockBaseType = {
     id: string;
-    type: ArticleBlockStyleType;
+    type: ArticleBlockStyle;
 }
 
 export type ArticleCodeBlockType = {
-    type: ArticleBlockStyleType.CODE;
+    type: ArticleBlockStyle.CODE;
     code: string;
 } & ArticleBlockBaseType;
 
 export type ArticleImageBlockType = {
-    type: ArticleBlockStyleType.IMAGE;
+    type: ArticleBlockStyle.IMAGE;
     src: string;
     title: string;
 } & ArticleBlockBaseType;
 
 export type ArticleTextBlockType = {
-    type: ArticleBlockStyleType.TEXT;
+    type: ArticleBlockStyle.TEXT;
     paragraphs: string[];
     title?: string;
 } & ArticleBlockBaseType;
 
 export type ArticleBlockType = ArticleCodeBlockType | ArticleImageBlockType | ArticleTextBlockType;
 
-export enum ArticleStyleType {
+export enum ArticleStyle {
+    ALL = 'ALL',
     IT = 'IT',
     SCIENCE = 'SCIENCE',
     ECONOMICS = 'ECONOMICS'
@@ -49,6 +56,6 @@ export type ArticleType = {
     img: string;
     views: number;
     createdAt: string;
-    type: ArticleStyleType[];
+    type: ArticleStyle[];
     blocks: ArticleBlockType[];
 }

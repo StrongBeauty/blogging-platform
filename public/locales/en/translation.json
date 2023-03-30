@@ -9,6 +9,7 @@
   "enter": "Enter",
   "exit": "Exit",
   "login": "Login",
+  "search": "Search",
   "password": "Password",
   "authorization": "Authorization",
   "incorrect_data": "Incorrect login or password",

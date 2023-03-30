@@ -11,7 +11,7 @@ import { RoutePath } from 'shared/config/route/routeConfig';
 import { useNavigate } from 'react-router-dom';
 import style from './ArticleListItem.module.scss';
 import {
-  ArticleBlockStyleType, ArticleTextBlockType, ArticleType, ArticleView,
+  ArticleBlockStyle, ArticleTextBlockType, ArticleType, ArticleView,
 } from '../../model/types/article';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
@@ -39,7 +39,7 @@ export const ArticleListItem = memo(({ className, article, view }: ArticleListIt
 
   if (view === ArticleView.BIG) {
     const textBlock = article.blocks.find(
-      (block) => block.type === ArticleBlockStyleType.TEXT,
+      (block) => block.type === ArticleBlockStyle.TEXT,
     ) as ArticleTextBlockType;
 
     return (

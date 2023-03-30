@@ -9,6 +9,7 @@
   "enter": "Войти",
   "exit": "Выйти",
   "login": "Логин",
+  "search": "Поиск",
   "password": "Пароль",
   "authorization": "Авторизация",
   "incorrect_data": "Неправильный логин или пароль",
