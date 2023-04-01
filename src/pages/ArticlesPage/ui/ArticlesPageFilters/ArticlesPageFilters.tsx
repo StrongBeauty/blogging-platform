@@ -1,28 +1,32 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import {ArticleSortField, ArticleView, ArticleViewSelector} from 'entities/Article';
+import { ArticleSortField, ArticleView, ArticleViewSelector } from 'entities/Article';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
-import {ArticleStyle} from 'entities/Article/model/types/article';
+import { ArticleStyle } from 'entities/Article/model/types/article';
+import { SortOrderType } from 'shared/types/sortOrder/sortOrder';
+import { ArticleSortSelector } from 'features/ArticleSortSelector';
+import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { ArticleTypeTabs } from 'features/ArticleTypeTabs';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import style from './ArticlesPageFilters.module.scss';
 import {
-  getArticlesPageOrder, getArticlesPageSearch,
-  getArticlesPageSort, getArticlesPageType,
+  getArticlesPageOrder,
+  getArticlesPageSearch,
+  getArticlesPageSort,
+  getArticlesPageType,
   getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
-import {SortOrderType} from "shared/types/sortOrder/sortOrder";
-import {ArticleSortSelector} from "features/ArticleSortSelector";
 
 type ArticlesPageFiltersProps = {
     className?: string;
 }
 
-export const ArticlesPageFilters = memo(({className}: ArticlesPageFiltersProps) => {
+export const ArticlesPageFilters = memo(({ className }: ArticlesPageFiltersProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const view = useSelector(getArticlesPageView);
@@ -62,8 +66,8 @@ export const ArticlesPageFilters = memo(({className}: ArticlesPageFiltersProps) 
   const onChangeType = useCallback((value: ArticleStyle) => {
     dispatch(articlesPageActions.setType(value));
     dispatch(articlesPageActions.setPage(1));
-    debouncedFetchData();
-  }, [dispatch, debouncedFetchData]);
+    fetchData();
+  }, [dispatch, fetchData]);
 
   return (
     <div className={classNames(style.block, {}, [className])}>

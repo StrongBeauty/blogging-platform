@@ -3,9 +3,9 @@ import { StateType } from 'app/providers/StoreProvider';
 import { ArticleType, ArticleView } from 'entities/Article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { ArticleSortField, ArticleStyle } from 'entities/Article/model/types/article';
+import { SortOrderType } from 'shared/types/sortOrder/sortOrder';
 import { ArticlesPageType } from '../types/articlesPageType';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
-import {SortOrderType} from "shared/types/sortOrder/sortOrder";
 
 const articlesAdapter = createEntityAdapter<ArticleType>({
   selectId: (article) => article.id,
@@ -61,17 +61,26 @@ const articlesPageSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchArticlesList.pending, (state) => {
+      .addCase(fetchArticlesList.pending, (state, action) => {
         state.error = undefined;
         state.isLoading = true;
+
+        if (action.meta.arg.replace) {
+          articlesAdapter.removeAll(state);
+        }
       })
       .addCase(fetchArticlesList.fulfilled, (
         state,
         action,
       ) => {
         state.isLoading = false;
-        articlesAdapter.addMany(state, action.payload);
-        state.hasMore = action.payload.length > 0;
+        state.hasMore = action.payload.length > state.limit;
+
+        if (action.meta.arg.replace) {
+          articlesAdapter.setAll(state, action.payload);
+        } else {
+          articlesAdapter.addMany(state, action.payload);
+        }
       })
       .addCase(fetchArticlesList.rejected, (state, action) => {
         state.isLoading = false;
