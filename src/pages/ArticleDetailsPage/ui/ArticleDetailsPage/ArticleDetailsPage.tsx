@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, ArticleList } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment';
@@ -12,16 +12,22 @@ import { AddCommentFormLazy } from 'features/AddCommentForm';
 import { Button } from 'shared/ui/Button';
 import { RoutePath } from 'shared/config/route/routeConfig';
 import { Page } from 'widgets/Page/ui/Page';
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices/articleDetailsPageSlice';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import {
   fetchCommentsByArticleId,
 } from '../../model/services/fetchCommntsByArticleId/fetchCommntsByArticleId';
-import { articleCommentsReducer, getArticleComments } from '../../model/slices/articleCommentsSlice';
+import { getArticleComments } from '../../model/slices/articleCommentsSlice';
 import style from './ArticleDetailsPage.module.scss';
 import { getArticleCommentsIsLoading } from '../../model/selctors/getArticleComments';
+import { getArticleRecommendations } from '../../model/slices/articleRecommendationsSlice';
+import { getArticleRecommendationsIsLoading } from '../../model/selctors/getArticleRecommendations';
+import {
+  fetchArticleRecommendations,
+} from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 
 const reducers: ReducersListType = {
-  articleComments: articleCommentsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = () => {
@@ -29,7 +35,9 @@ const ArticleDetailsPage = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
   const comments = useSelector(getArticleComments.selectAll);
-  const isLoading = useSelector(getArticleCommentsIsLoading);
+  const recommendations = useSelector(getArticleRecommendations.selectAll);
+  const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+  const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
   const navigate = useNavigate();
 
   const onSendComment = useCallback((text: string) => {
@@ -42,6 +50,7 @@ const ArticleDetailsPage = () => {
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
+    dispatch(fetchArticleRecommendations());
   });
 
   if (!id) {
@@ -60,10 +69,23 @@ const ArticleDetailsPage = () => {
           {t('back')}
         </Button>
         <ArticleDetails id={id} />
-        <Text className={style.comment_title} title={t('comment')} />
+        <Text
+          className={style.comment_title}
+          title={t('recommendations')}
+        />
+        <ArticleList
+          articles={recommendations}
+          isLoading={recommendationsIsLoading}
+          className={style.recommendations}
+          target="_blank"
+        />
+        <Text
+          className={style.comment_title}
+          title={t('comment')}
+        />
         <AddCommentFormLazy onSendComment={onSendComment} />
         <CommentList
-          isLoading={isLoading}
+          isLoading={commentsIsLoading}
           comments={comments}
         />
       </Page>

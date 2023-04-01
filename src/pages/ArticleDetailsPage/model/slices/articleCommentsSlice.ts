@@ -6,19 +6,19 @@ import { StateType } from 'app/providers/StoreProvider';
 import {
   fetchCommentsByArticleId,
 } from 'pages/ArticleDetailsPage/model/services/fetchCommntsByArticleId/fetchCommntsByArticleId';
-import { ArticleCommentsStateType } from '../types/ArticleCommentsStateType';
+import { ArticleCommentsType } from '../types/ArticleCommentsType';
 
 const articleCommentsAdapter = createEntityAdapter<CommentType>({
   selectId: (comment) => comment.id,
 });
 
 export const getArticleComments = articleCommentsAdapter.getSelectors<StateType>(
-  (state) => state.articleComments || articleCommentsAdapter.getInitialState(),
+  (state) => state.articleDetailsPage?.comments || articleCommentsAdapter.getInitialState(),
 );
 
 const articleCommentsSlice = createSlice({
   name: 'articleCommentsSlice',
-  initialState: articleCommentsAdapter.getInitialState<ArticleCommentsStateType>({
+  initialState: articleCommentsAdapter.getInitialState<ArticleCommentsType>({
     isLoading: false,
     error: undefined,
     ids: [],

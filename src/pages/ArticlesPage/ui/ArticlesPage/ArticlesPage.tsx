@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { Page } from 'widgets/Page/ui/Page';
 import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
 import { useSearchParams } from 'react-router-dom';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { initArticlesPage } from '../../model/services/initArticlePage/initArticlePage';
 import {
   getArticlesPageIsLoading,
@@ -37,7 +38,10 @@ const ArticlesPage = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers} isRemoveAfterUnmount={false}>
-      <Page onScrollEnd={onLoadNextPart}>
+      <Page
+        onScrollEnd={onLoadNextPart}
+        className={classNames(style.block, {}, [])}
+      >
         <ArticlesPageFilters />
         <ArticleList
           isLoading={isLoading}

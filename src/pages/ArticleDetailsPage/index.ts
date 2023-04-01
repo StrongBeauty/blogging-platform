@@ -1,3 +1,4 @@
 export { ArticleDetailsPageLazy } from './ui/ArticleDetailsPage/ArticleDetailsPageLazy';
 
-export type { ArticleCommentsStateType } from './model/types/ArticleCommentsStateType';
+export type { ArticleCommentsType } from './model/types/ArticleCommentsType';
+export type { ArticleRecommendationsType } from './model/types/ArticleRecommendationsType';

@@ -1,5 +1,5 @@
 import { StateType } from 'app/providers/StoreProvider';
 
-export const getArticleCommentsIsLoading = (state: StateType) => state.articleComments?.isLoading;
+export const getArticleCommentsIsLoading = (state: StateType) => state.articleDetailsPage?.comments?.isLoading;
 
-export const getArticleCommentsError = (state: StateType) => state.articleComments?.error;
+export const getArticleCommentsError = (state: StateType) => state.articleDetailsPage?.comments?.error;

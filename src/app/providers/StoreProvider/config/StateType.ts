@@ -7,10 +7,10 @@ import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
 import { ProfileStateType } from 'features/EditableProfileCard';
 import { ArticleDetailsStateType } from 'entities/Article';
-import { ArticleCommentsStateType } from 'pages/ArticleDetailsPage';
 import { AddCommentFormType } from 'features/AddCommentForm';
 import { ArticlesPageType } from 'pages/ArticlesPage';
 import { PageStateType } from 'widgets/Page';
+import { ArticleDetailsPageStateType } from 'pages/ArticleDetailsPage/model/types/ArticleDetailsPageStateType';
 
 export type StateType = {
     user: UserStateType;
@@ -20,9 +20,9 @@ export type StateType = {
     loginForm?: LoginStateType;
     profile?: ProfileStateType;
     articleDetails?: ArticleDetailsStateType;
-    articleComments?: ArticleCommentsStateType;
     addCommentForm?: AddCommentFormType;
     articlesPage?: ArticlesPageType;
+    articleDetailsPage?: ArticleDetailsPageStateType;
 }
 
 export type StateTypeKey = keyof StateType;

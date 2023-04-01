@@ -22,6 +22,7 @@
   "countries": "countries",
   "currency": "currency",
   "comment": "comment",
+  "recommendations": "Recommendations",
   "not_found": "Not Found",
   "pages": {
     "main": "Main Page",

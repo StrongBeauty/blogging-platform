@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import { useTranslation } from 'react-i18next';
@@ -11,6 +11,7 @@ type ArticleListProps = {
     className?: string;
     articles: ArticleType[];
     isLoading?: boolean;
+    target?: HTMLAttributeAnchorTarget;
     view?: ArticleView;
 }
 
@@ -25,6 +26,7 @@ export const ArticleList = memo(({
   className,
   articles,
   isLoading,
+  target,
   view = ArticleView.SMALL,
 } : ArticleListProps) => {
   const { t } = useTranslation();
@@ -32,6 +34,7 @@ export const ArticleList = memo(({
     <ArticleListItem
       article={article}
       view={view}
+      target={target}
       className={style.card}
       key={article.id}
     />
