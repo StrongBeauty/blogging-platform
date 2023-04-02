@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { ArticleDetails, ArticleList } from 'entities/Article';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment';
 import { DynamicModuleLoader, ReducersListType } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -9,10 +9,9 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentFormLazy } from 'features/AddCommentForm';
-import { Button } from 'shared/ui/Button';
-import { RoutePath } from 'shared/config/route/routeConfig';
 import { Page } from 'widgets/Page/ui/Page';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices/articleDetailsPageSlice';
+import { ArticleDetailsHeader } from 'pages/ArticleDetailsPage/ui/ArticleDetailsHeader/ArticleDetailsHeader';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import {
   fetchCommentsByArticleId,
@@ -38,15 +37,10 @@ const ArticleDetailsPage = () => {
   const recommendations = useSelector(getArticleRecommendations.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
-  const navigate = useNavigate();
 
   const onSendComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text));
   }, [dispatch]);
-
-  const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
-  }, [navigate]);
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -62,12 +56,7 @@ const ArticleDetailsPage = () => {
   return (
     <DynamicModuleLoader reducers={reducers} isRemoveAfterUnmount>
       <Page>
-        <Button
-          theme="outline"
-          onClick={onBackToList}
-        >
-          {t('back')}
-        </Button>
+        <ArticleDetailsHeader />
         <ArticleDetails id={id} />
         <Text
           className={style.comment_title}

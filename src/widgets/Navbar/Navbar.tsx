@@ -5,6 +5,9 @@ import { Button } from 'shared/ui/Button';
 import { useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Text } from 'shared/ui/Text/Text';
+import { AppLink } from 'shared/ui/AppLink';
+import { RoutePath } from 'shared/config/route/routeConfig';
 import style from './Navbar.module.scss';
 
 export const Navbar = memo(() => {
@@ -28,8 +31,20 @@ export const Navbar = memo(() => {
   if (authData) {
     return (
       <header className={style.navbar}>
+        <Text
+          className={style.app_name}
+          title={t('links.main')}
+          theme="inverted"
+        />
+        <AppLink
+          to={RoutePath.article_create}
+          theme="secondary"
+        >
+          {t('create')}
+        </AppLink>
         <Button
           theme="clear_inverted"
+          className={style.links}
           onClick={onLogout}
         >
           {t('exit')}
@@ -41,6 +56,7 @@ export const Navbar = memo(() => {
     <header className={style.navbar}>
       <Button
         theme="clear_inverted"
+        className={style.links}
         onClick={onShowModal}
       >
         {t('enter')}

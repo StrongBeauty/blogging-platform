@@ -18,7 +18,7 @@ type TextProps = {
     title?: string;
     text?: string;
     // ToDo
-    theme?: 'normal' | 'error';
+    theme?: 'normal' | 'error' | 'inverted';
     align?: TextAlign;
     size?: TextSize;
 }
