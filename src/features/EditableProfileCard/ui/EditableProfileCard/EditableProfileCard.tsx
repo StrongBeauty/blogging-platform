@@ -24,7 +24,7 @@ export const EditableProfileCard = () => {
   const readonly = useSelector(getProfileReadonly);
   const validateErrors = useSelector(getProfileValidateError);
   const dispatch = useAppDispatch();
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
 
   const validateErrorTranslates = {
     [ValidateProfileError.INCORRECT_COUNTRY]: t('incorrect.country'),
