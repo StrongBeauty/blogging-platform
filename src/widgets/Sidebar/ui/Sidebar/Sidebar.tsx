@@ -25,7 +25,7 @@ export const Sidebar = memo(() => {
   )), [collapsed, sidebarItemsList]);
 
   return (
-    <menu
+    <aside
       data-testid="sidebar"
       className={classNames(style.sidebar, { [style.collapsed]: collapsed }, [])}
     >
@@ -39,13 +39,13 @@ export const Sidebar = memo(() => {
       >
         {collapsed ? '>' : '<'}
       </Button>
-      <VStack gap="8" className={style.items}>
+      <VStack role="navigation" gap="8" className={style.items}>
         {itemList}
       </VStack>
       <div className={style.switchers}>
         <ThemeSwitcher />
         <LangSwitcher className={style.lang} isShort={collapsed} />
       </div>
-    </menu>
+    </aside>
   );
 });

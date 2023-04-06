@@ -9,6 +9,7 @@ export enum TextAlign {
 }
 
 export enum TextSize {
+    S = 'size_s',
     M = 'size_m',
     L = 'size_l',
 }
@@ -23,6 +24,14 @@ type TextProps = {
     size?: TextSize;
 }
 
+type HeaderTagType = 'h1' | 'h2' | 'h3';
+
+const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
+  [TextSize.S]: 'h3',
+  [TextSize.M]: 'h2',
+  [TextSize.L]: 'h1',
+};
+
 export const Text = memo(({
   className,
   title,
@@ -31,6 +40,8 @@ export const Text = memo(({
   align = TextAlign.left,
   size = TextSize.M,
 }: TextProps) => {
+  const HeaderTag = mapSizeToHeaderTag[size];
+
   const adds = [
     className,
     style[theme],
@@ -40,7 +51,7 @@ export const Text = memo(({
 
   return (
     <div className={classNames('', {}, adds)}>
-      {title && <p className={style.title}>{title}</p>}
+      {title && <HeaderTag className={style.title}>{title}</HeaderTag>}
       {text && <p className={style.text}>{text}</p>}
     </div>
   );

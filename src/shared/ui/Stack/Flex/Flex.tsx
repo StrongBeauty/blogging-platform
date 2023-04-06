@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import style from './Flex.module.scss';
 
@@ -40,7 +40,7 @@ export type FlexProps = {
   direction: FlexDirection;
   gap?: FlexGap,
   max?: boolean,
-}
+} & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 export const Flex = ({
   className,
