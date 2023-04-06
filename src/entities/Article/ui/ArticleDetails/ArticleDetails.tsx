@@ -12,6 +12,7 @@ import { Icon } from 'shared/ui/Icon';
 import { ArticleCodeBlock } from 'entities/Article/ui/ArticleCodeBlock/ArticleCodeBlock';
 import { ArticleImageBlock } from 'entities/Article/ui/ArticleImageBlock/ArticleImageBlock';
 import { ArticleTextBlock } from 'entities/Article/ui/ArticleTextBlock/ArticleTextBlock';
+import { HStack, VStack } from 'shared/ui/Stack';
 import style from './ArticleDetails.module.scss';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
@@ -96,27 +97,29 @@ export const ArticleDetails = memo(({ id }: ArticleDetailsPropsType) => {
   } else {
     content = (
       <>
-        <div className={style.avatar_block}>
+        <HStack justify="center" max className={style.avatar_block}>
           <Avatar
             size={200}
             src={article?.img}
             className={style.avatar}
           />
-        </div>
-        <Text
-          className={style.title}
-          title={article?.title}
-          text={article?.subtitle}
-          size={TextSize.L}
-        />
-        <div className={style.article_info}>
-          <Icon className={style.icon} Svg={EyeIcon} />
-          <Text text={String(article?.views)} />
-        </div>
-        <div className={style.article_info}>
-          <Icon className={style.icon} Svg={CalendarIcon} />
-          <Text text={article?.createdAt} />
-        </div>
+        </HStack>
+        <VStack gap="4" max>
+          <Text
+            className={style.title}
+            title={article?.title}
+            text={article?.subtitle}
+            size={TextSize.L}
+          />
+          <HStack gap="8" className={style.article_info}>
+            <Icon className={style.icon} Svg={EyeIcon} />
+            <Text text={String(article?.views)} />
+          </HStack>
+          <HStack gap="8" className={style.article_info}>
+            <Icon className={style.icon} Svg={CalendarIcon} />
+            <Text text={article?.createdAt} />
+          </HStack>
+        </VStack>
         {article?.blocks.map(renderBlock)}
       </>
     );
@@ -124,7 +127,9 @@ export const ArticleDetails = memo(({ id }: ArticleDetailsPropsType) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} isRemoveAfterUnmount>
-      {content}
+      <VStack gap="16">
+        {content}
+      </VStack>
     </DynamicModuleLoader>
   );
 });

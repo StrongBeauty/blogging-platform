@@ -60,7 +60,7 @@ export const Flex = ({
   ];
 
   return (
-    <div className={classNames(style.block, {}, classes)}>
+    <div className={classNames(style.block, { [style.max]: max }, classes)}>
       {children}
     </div>
   );

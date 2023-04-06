@@ -14,6 +14,7 @@ import { ValidateProfileError } from 'features/EditableProfileCard/modal/types/p
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { ProfilePageHeader } from '../ProfilePageHeader/ProfilePageHeader';
 
 export const EditableProfileCard = () => {
@@ -73,7 +74,7 @@ export const EditableProfileCard = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <VStack gap="16" max>
       <ProfilePageHeader readonly={readonly} />
       {validateErrors?.length && validateErrors.map((err) => (
         <Text key={err} theme="error" text={validateErrorTranslates[err]} />
@@ -92,6 +93,6 @@ export const EditableProfileCard = () => {
         onChangeCountry={onChangeCountry}
         readonly={readonly}
       />
-    </>
+    </VStack>
   );
 };

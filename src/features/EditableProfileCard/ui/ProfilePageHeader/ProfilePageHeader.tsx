@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
 import { getProfileData } from 'features/EditableProfileCard/modal/selectors/getProfileState';
 import { HStack } from 'shared/ui/Stack/HStack/HStack';
-import style from './ProfilePageHeader.module.scss';
 
 type ProfilePageHeaderProps = {
   readonly?: boolean;
@@ -35,7 +34,7 @@ export const ProfilePageHeader = ({ readonly }: ProfilePageHeaderProps) => {
   }, [dispatch]);
 
   return (
-    <HStack justify="between">
+    <HStack justify="between" max>
       <Text
         title={t('pages.profile')}
       />
@@ -44,7 +43,6 @@ export const ProfilePageHeader = ({ readonly }: ProfilePageHeaderProps) => {
           {readonly ? (
             <Button
               theme="outline"
-              className={style.btn}
               onClick={editHandler}
             >
               {t('edit')}
@@ -54,14 +52,12 @@ export const ProfilePageHeader = ({ readonly }: ProfilePageHeaderProps) => {
                 <HStack gap="8">
                   <Button
                     theme="outline"
-                    className={style.btn}
                     onClick={saveHandler}
                   >
                     {t('save')}
                   </Button>
                   <Button
                     theme="outline_red"
-                    className={style.btn}
                     onClick={cancelHandler}
                   >
                     {t('cancel')}

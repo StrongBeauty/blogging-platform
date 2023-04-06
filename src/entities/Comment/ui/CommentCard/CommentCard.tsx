@@ -6,6 +6,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { AppLink } from 'shared/ui/AppLink';
 import { RoutePath } from 'shared/config/route/routeConfig';
+import { VStack } from 'shared/ui/Stack';
 import style from './CommentCard.module.scss';
 
 type CommentCardPropsType = {
@@ -17,13 +18,13 @@ type CommentCardPropsType = {
 export const CommentCard = memo(({ className, comment, isLoading }: CommentCardPropsType) => {
   if (isLoading) {
     return (
-      <div className={classNames(style.block, {}, [className, style.loading])}>
+      <VStack max gap="8" className={classNames(style.block, {}, [className, style.loading])}>
         <div className={style.header}>
           <Skeleton width={30} height={30} border="50%" />
           <Skeleton className={style.username} width={100} height={16} />
         </div>
         <Skeleton className={style.text} width="100%" height={50} />
-      </div>
+      </VStack>
     );
   }
 

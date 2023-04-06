@@ -12,6 +12,7 @@ import { AddCommentFormLazy } from 'features/AddCommentForm';
 import { Page } from 'widgets/Page/ui/Page';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices/articleDetailsPageSlice';
 import { ArticleDetailsHeader } from 'pages/ArticleDetailsPage/ui/ArticleDetailsHeader/ArticleDetailsHeader';
+import { VStack } from 'shared/ui/Stack';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import {
   fetchCommentsByArticleId,
@@ -56,27 +57,29 @@ const ArticleDetailsPage = () => {
   return (
     <DynamicModuleLoader reducers={reducers} isRemoveAfterUnmount>
       <Page>
-        <ArticleDetailsHeader />
-        <ArticleDetails id={id} />
-        <Text
-          className={style.comment_title}
-          title={t('recommendations')}
-        />
-        <ArticleList
-          articles={recommendations}
-          isLoading={recommendationsIsLoading}
-          className={style.recommendations}
-          target="_blank"
-        />
-        <Text
-          className={style.comment_title}
-          title={t('comment')}
-        />
-        <AddCommentFormLazy onSendComment={onSendComment} />
-        <CommentList
-          isLoading={commentsIsLoading}
-          comments={comments}
-        />
+        <VStack gap="16" max>
+          <ArticleDetailsHeader />
+          <ArticleDetails id={id} />
+          <Text
+            className={style.comment_title}
+            title={t('recommendations')}
+          />
+          <ArticleList
+            articles={recommendations}
+            isLoading={recommendationsIsLoading}
+            className={style.recommendations}
+            target="_blank"
+          />
+          <Text
+            className={style.comment_title}
+            title={t('comment')}
+          />
+          <AddCommentFormLazy onSendComment={onSendComment} />
+          <CommentList
+            isLoading={commentsIsLoading}
+            comments={comments}
+          />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

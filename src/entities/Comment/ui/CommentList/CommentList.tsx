@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { CommentCard } from 'entities/Comment/ui/CommentCard/CommentCard';
 import { CommentType } from 'entities/Comment';
-import style from './CommentList.module.scss';
+import { VStack } from 'shared/ui/Stack';
 
 type CommentListPropsType = {
     className?: string;
@@ -17,26 +17,25 @@ export const CommentList = memo(({ className, comments, isLoading }: CommentList
 
   if (isLoading) {
     return (
-      <div className={classNames(style.CommentList, {}, [className])}>
+      <VStack gap="16" max className={classNames('', {}, [className])}>
         <CommentCard isLoading />
         <CommentCard isLoading />
         <CommentCard isLoading />
-      </div>
+      </VStack>
     );
   }
 
   return (
-    <div className={classNames(style.CommentList, {}, [className])}>
+    <VStack gap="16" className={classNames('', {}, [className])}>
       {comments.length
             ? comments.map((com) => (
               <CommentCard
-                className={style.comment}
                 key={com.text}
                 comment={com}
                 isLoading={isLoading}
               />
             ))
             : <Text text={t('wrong_message')} />}
-    </div>
+    </VStack>
   );
 });
