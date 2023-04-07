@@ -118,7 +118,6 @@ export const ProfileCard = ({
         readonly={readonly}
       />
       <CountrySelect
-        className={style.input}
         value={data?.country}
         onChange={onChangeCountry}
         readonly={readonly}
