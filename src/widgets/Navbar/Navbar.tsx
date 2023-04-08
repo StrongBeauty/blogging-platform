@@ -8,6 +8,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text } from 'shared/ui/Text/Text';
 import { AppLink } from 'shared/ui/AppLink';
 import { RoutePath } from 'shared/config/route/routeConfig';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import style from './Navbar.module.scss';
 
 export const Navbar = memo(() => {
@@ -42,13 +44,21 @@ export const Navbar = memo(() => {
         >
           {t('create')}
         </AppLink>
-        <Button
-          theme="clear_inverted"
-          className={style.links}
-          onClick={onLogout}
-        >
-          {t('exit')}
-        </Button>
+        <Dropdown
+          direction="bottom left"
+          className={style.dropdown}
+          items={[
+            {
+              content: t('links.profile'),
+              href: RoutePath.profile + authData.id,
+            },
+            {
+              content: t('exit'),
+              onClick: onLogout,
+            },
+          ]}
+          trigger={<Avatar size={30} src={authData.avatar} />}
+        />
       </header>
     );
   }

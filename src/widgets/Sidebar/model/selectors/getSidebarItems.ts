@@ -26,7 +26,7 @@ export const getSidebarItems = createSelector(
     if (userData) {
       sidebarItemsList.push(
         {
-          path: RoutePath.profile,
+          path: RoutePath.profile + userData.id,
           Icon: ProfilePageIcon,
           text: 'links.profile',
           authOnly: true,

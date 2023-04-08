@@ -6,14 +6,12 @@ import {
 import { ProfileCard } from 'entities/Profile';
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { fetchProfileData, profileActions } from 'features/EditableProfileCard';
+import { profileActions } from 'features/EditableProfileCard';
 import { Currency } from 'entities/Currency';
 import { Countries } from 'entities/Country';
 import { Text } from 'shared/ui/Text/Text';
 import { ValidateProfileError } from 'features/EditableProfileCard/modal/types/profileStateType';
 import { useTranslation } from 'react-i18next';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { useParams } from 'react-router-dom';
 import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { ProfilePageHeader } from '../ProfilePageHeader/ProfilePageHeader';
 
@@ -25,7 +23,6 @@ export const EditableProfileCard = () => {
   const readonly = useSelector(getProfileReadonly);
   const validateErrors = useSelector(getProfileValidateError);
   const dispatch = useAppDispatch();
-  const { id } = useParams<{ id: string }>();
 
   const validateErrorTranslates = {
     [ValidateProfileError.INCORRECT_COUNTRY]: t('incorrect.country'),
@@ -34,12 +31,6 @@ export const EditableProfileCard = () => {
     [ValidateProfileError.SERVER_ERROR]: t('incorrect.server'),
     [ValidateProfileError.NO_DATA]: t('incorrect.data'),
   };
-
-  useInitialEffect(() => {
-    if (id) {
-      dispatch(fetchProfileData(id));
-    }
-  });
 
   const onChangeFirstname = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ firstname: value || '' }));

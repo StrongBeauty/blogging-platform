@@ -24,4 +24,4 @@ type OptionalRecord<K extends keyof any, T> = {
 };
 
 /* пакет react-scripts и файл react-route-env.d.ts с содержимым
-<reference types="react-scripts" заменяет global.d.ts */
+<reference types.ts="react-scripts" заменяет global.d.ts */
